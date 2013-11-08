@@ -57,22 +57,25 @@ from types import *
 import BaseHTTPServer
 
 # SOAPpy modules
-from Parser      import parseSOAPRPC
-from Config      import SOAPConfig
-from Types       import faultType, voidType, simplify
-from NS          import NS
+from Parser import parseSOAPRPC
+from Config import SOAPConfig
+from Types import faultType, voidType, simplify
+from NS import NS
 from SOAPBuilder import buildSOAP
-from Utilities   import debugHeader, debugFooter
+from Utilities import debugHeader, debugFooter
 
-try: from M2Crypto import SSL
-except: pass
+try:
+    from M2Crypto import SSL
+except:
+    pass
 
-#####
+#
 
 from Server import *
 
 from pyGlobus.io import GSITCPSocketServer, ThreadingGSITCPSocketServer
 from pyGlobus import ioc
+
 
 def GSIConfig():
     config = SOAPConfig()
@@ -84,60 +87,62 @@ def GSIConfig():
 
 Config = GSIConfig()
 
+
 class GSISOAPServer(GSITCPSocketServer, SOAPServerBase):
-    def __init__(self, addr = ('localhost', 8000),
+
+    def __init__(self, addr=('localhost', 8000),
                  RequestHandler = SOAPRequestHandler, log = 0,
                  encoding = 'UTF-8', config = Config, namespace = None):
 
         # Test the encoding, raising an exception if it's not known
-        if encoding != None:
+        if encoding is not None:
             ''.encode(encoding)
 
-        self.namespace          = namespace
-        self.objmap             = {}
-        self.funcmap            = {}
-        self.encoding           = encoding
-        self.config             = config
-        self.log                = log
-        
-        self.allow_reuse_address= 1
-        
+        self.namespace = namespace
+        self.objmap = {}
+        self.funcmap = {}
+        self.encoding = encoding
+        self.config = config
+        self.log = log
+
+        self.allow_reuse_address = 1
+
         GSITCPSocketServer.__init__(self, addr, RequestHandler,
                                     self.config.channel_mode,
                                     self.config.delegation_mode,
-                                    tcpAttr = self.config.tcpAttr)
-        
+                                    tcpAttr=self.config.tcpAttr)
+
     def get_request(self):
         sock, addr = GSITCPSocketServer.get_request(self)
 
         return sock, addr
-       
+
+
 class ThreadingGSISOAPServer(ThreadingGSITCPSocketServer, SOAPServerBase):
 
-    def __init__(self, addr = ('localhost', 8000),
+    def __init__(self, addr=('localhost', 8000),
                  RequestHandler = SOAPRequestHandler, log = 0,
                  encoding = 'UTF-8', config = Config, namespace = None):
-        
+
         # Test the encoding, raising an exception if it's not known
-        if encoding != None:
+        if encoding is not None:
             ''.encode(encoding)
 
-        self.namespace          = namespace
-        self.objmap             = {}
-        self.funcmap            = {}
-        self.encoding           = encoding
-        self.config             = config
-        self.log                = log
-        
-        self.allow_reuse_address= 1
-        
+        self.namespace = namespace
+        self.objmap = {}
+        self.funcmap = {}
+        self.encoding = encoding
+        self.config = config
+        self.log = log
+
+        self.allow_reuse_address = 1
+
         ThreadingGSITCPSocketServer.__init__(self, addr, RequestHandler,
                                              self.config.channel_mode,
                                              self.config.delegation_mode,
-                                             tcpAttr = self.config.tcpAttr)
+                                             tcpAttr=self.config.tcpAttr)
 
     def get_request(self):
         sock, addr = ThreadingGSITCPSocketServer.get_request(self)
 
         return sock, addr
-

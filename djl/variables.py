@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-*
 
-#djl (Dépot jeux Linux)
-#Copyright (C) 2008-2009 Florian Joncour - Diablo150 <diablo151@wanadoo.fr
+# djl (Dépot jeux Linux)
+# Copyright (C) 2008-2009 Florian Joncour - Diablo150 <diablo151@wanadoo.fr
 #
-#This file is part of djl (Dépot jeux Linux)
+# This file is part of djl (Dépot jeux Linux)
 #
 # djl is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,57 +21,64 @@
 import os
 import config
 
-#Repère le répertoire racine dans l'arborescence:
+# Repère le répertoire racine dans l'arborescence:
 dossier_racine = os.getcwd()
 home = os.path.expanduser('~')
 
-#Défini les variable publiques:
+# Défini les variable publiques:
+
+
 class variables:
-    instance = None #Instance de la classe principale de djl.
-    
-    maj_listejeux = False #Si passe à True, met à jour la liste des jeux
-    
-    #Défini le jeu en cours d'execution
+    instance = None  # Instance de la classe principale de djl.
+
+    maj_listejeux = False  # Si passe à True, met à jour la liste des jeux
+
+    # Défini le jeu en cours d'execution
     nom_jeu = ""
-    
-    #Défini l'état lors de l'installation de jeux:
+
+    # Défini l'état lors de l'installation de jeux:
     installe = {}
-    
-    #Affiche un message d'erreur quand le jeu est lancé, si la variable vaut 1
-    erreur=0
-    
-    #Permet ou non l'affichage de l'éditeur de fichiers texte (débogage, journal.txt, historique de djl...) (tout dépend si il est déjà ouvert), avec la classe Ui_journal:
+
+    # Affiche un message d'erreur quand le jeu est lancé, si la variable vaut 1
+    erreur = 0
+
+    # Permet ou non l'affichage de l'éditeur de fichiers texte (débogage,
+    # journal.txt, historique de djl...) (tout dépend si il est déjà ouvert),
+    # avec la classe Ui_journal:
     journal = 0
-    
-    #Défini si l'on utilise une version de développement:
+
+    # Défini si l'on utilise une version de développement:
     version_dev = 0
-    
-    #Défini le lien vers le site dans le menu de la liste de jeux doit être activé (si on a put se connecter ou non)
+
+    # Défini le lien vers le site dans le menu de la liste de jeux doit être
+    # activé (si on a put se connecter ou non)
     lien_site = 1
 
     #etat_RSS = 0
-    
-    ###Variables dédiés à IRC:
-    connecte = 0 #Défini l'état, si l'on est connecté ou pas
-    recoi_irc = ["", "",  ""] #texte, canal, source (pseudo)
-    
-    #Créé les listes qui contiendront le texte de chaque canal
-    liste_canaux = [""]*len(config.config(info=16)) #Va chercher la liste des canaux suivant la configuration)
-    
-    #Les listes d'utilisateurs pour chaque canal
+
+    # Variables dédiés à IRC:
+    connecte = 0  # Défini l'état, si l'on est connecté ou pas
+    recoi_irc = ["", "", ""]  # texte, canal, source (pseudo)
+
+    # Créé les listes qui contiendront le texte de chaque canal
+    # Va chercher la liste des canaux suivant la configuration)
+    liste_canaux = [""] * len(config.config(info=16))
+
+    # Les listes d'utilisateurs pour chaque canal
     liste_utilisateurs = {}
-    
-    #Evenement sur IRC, on modifi la liste quand un utilisateur rejoins ou ferme le canal ou se deconnecte
-    even_irc = ["",  "",  ""] #nom_evenement, canal, source (utilisateur)
-    ####/IRC
-    
-    #Défini le type de MAJ (dans le dossier de djl ou dans ~/.djl/src)
+
+    # Evenement sur IRC, on modifi la liste quand un utilisateur rejoins ou
+    # ferme le canal ou se deconnecte
+    even_irc = ["", "", ""]  # nom_evenement, canal, source (utilisateur)
+    # /IRC
+
+    # Défini le type de MAJ (dans le dossier de djl ou dans ~/.djl/src)
     type_maj = 0
-    
-    #Passe à un quand il faut mettre à jour la police  d'écriture de djl
+
+    # Passe à un quand il faut mettre à jour la police  d'écriture de djl
     ch_police = 0
-    
-    #Définition des serveurs utilisés (constantes)
+
+    # Définition des serveurs utilisés (constantes)
     SERVEUR_SOAP = ''
     SERVEUR_LIBRAIRIES = ''
     SERVEUR_STABLE = ''

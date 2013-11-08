@@ -88,12 +88,15 @@ DEBUG = 0
 # ERROR from the server triggers the error event and the disconnect event.
 # dropping of the connection triggers the disconnect event.
 
+
 class IRCError(Exception):
+
     """Represents an IRC exception."""
     pass
 
 
 class IRC:
+
     """Class that handles one or several IRC server connections.
 
     When an IRC object has been instantiated, it can be used to create
@@ -157,7 +160,7 @@ class IRC:
         self.fn_to_add_timeout = fn_to_add_timeout
         self.connections = []
         self.handlers = {}
-        self.delayed_commands = [] # list of tuples in the format (time, function, arguments)
+        self.delayed_commands = []  # list of tuples in the format (time, function, arguments)
 
         self.add_global_handler("ping", _ping_ponger, -42)
 
@@ -208,7 +211,7 @@ class IRC:
         at the process_forever method.
         """
         sockets = map(lambda x: x._get_socket(), self.connections)
-        sockets = filter(lambda x: x != None, sockets)
+        sockets = filter(lambda x: x is not None, sockets)
         if sockets:
             (i, o, e) = select.select(sockets, [], [], timeout)
             self.process_data(i)
@@ -287,7 +290,7 @@ class IRC:
 
             arguments -- Arguments to give the function.
         """
-        self.execute_delayed(at-time.time(), function, arguments)
+        self.execute_delayed(at - time.time(), function, arguments)
 
     def execute_delayed(self, delay, function, arguments=()):
         """Execute a function after a specified time.
@@ -300,7 +303,7 @@ class IRC:
 
             arguments -- Arguments to give the function.
         """
-        bisect.insort(self.delayed_commands, (delay+time.time(), function, arguments))
+        bisect.insort(self.delayed_commands, (delay + time.time(), function, arguments))
         if self.fn_to_add_timeout:
             self.fn_to_add_timeout(delay)
 
@@ -331,21 +334,25 @@ class IRC:
         if self.fn_to_remove_socket:
             self.fn_to_remove_socket(connection._get_socket())
 
-_rfc_1459_command_regexp = re.compile("^(:(?P<prefix>[^ ]+) +)?(?P<command>[^ ]+)( *(?P<argument> .+))?")
+_rfc_1459_command_regexp = re.compile(
+    "^(:(?P<prefix>[^ ]+) +)?(?P<command>[^ ]+)( *(?P<argument> .+))?")
+
 
 class Connection:
+
     """Base class for IRC connections.
 
     Must be overridden.
     """
+
     def __init__(self, irclibobj):
         self.irclibobj = irclibobj
 
     def _get_socket():
         raise IRCError, "Not overridden"
 
-    ##############################
-    ### Convenience wrappers.
+    #
+    # Convenience wrappers.
 
     def execute_at(self, at, function, arguments=()):
         self.irclibobj.execute_at(at, function, arguments)
@@ -357,6 +364,7 @@ class Connection:
 class ServerConnectionError(IRCError):
     pass
 
+
 class ServerNotConnectedError(ServerConnectionError):
     pass
 
@@ -365,7 +373,9 @@ class ServerNotConnectedError(ServerConnectionError):
 # use \n as message separator!  :P
 _linesep_regexp = re.compile("\r?\n")
 
+
 class ServerConnection(Connection):
+
     """This class represents an IRC server connection.
 
     ServerConnection objects are instantiated by calling the server
@@ -488,9 +498,9 @@ class ServerConnection(Connection):
 
         try:
             if self.ssl:
-                new_data = self.ssl.read(2**14)
+                new_data = self.ssl.read(2 ** 14)
             else:
-                new_data = self.socket.recv(2**14)
+                new_data = self.socket.recv(2 ** 14)
         except socket.error, x:
             # The server hung up.
             self.disconnect("Connection reset by peer")
@@ -851,16 +861,19 @@ class ServerConnection(Connection):
                                          max and (" " + max),
                                          server and (" " + server)))
 
+
 class DCCConnectionError(IRCError):
     pass
 
 
 class DCCConnection(Connection):
+
     """This class represents a DCC connection.
 
     DCCConnection objects are instantiated by calling the dcc
     method on an IRC object.
     """
+
     def __init__(self, irclibobj, dcctype):
         Connection.__init__(self, irclibobj)
         self.connected = 0
@@ -955,7 +968,7 @@ class DCCConnection(Connection):
             return
 
         try:
-            new_data = self.socket.recv(2**14)
+            new_data = self.socket.recv(2 ** 14)
         except socket.error, x:
             # The server hung up.
             self.disconnect("Connection reset by peer")
@@ -972,7 +985,7 @@ class DCCConnection(Connection):
 
             # Save the last, unfinished line.
             self.previous_buffer = chunks[-1]
-            if len(self.previous_buffer) > 2**14:
+            if len(self.previous_buffer) > 2 ** 14:
                 # Bad peer! Naughty peer!
                 self.disconnect()
                 return
@@ -1014,7 +1027,9 @@ class DCCConnection(Connection):
             # Ouch!
             self.disconnect("Connection reset by peer.")
 
+
 class SimpleIRCClient:
+
     """A simple single-server IRC client class.
 
     This is an example of an object-oriented wrapper of the IRC
@@ -1035,6 +1050,7 @@ class SimpleIRCClient:
 
         dcc_connections -- A list of DCCConnection instances.
     """
+
     def __init__(self):
         self.ircobj = IRC()
         self.connection = self.ircobj.server()
@@ -1045,8 +1061,8 @@ class SimpleIRCClient:
     def _dispatcher(self, c, e):
         """[Internal]"""
         m = "on_" + e.eventtype()
-        #if DEBUG:
-            #print str(m)
+        # if DEBUG:
+            # print str(m)
         if hasattr(self, m):
             getattr(self, m)(c, e)
 
@@ -1117,7 +1133,9 @@ class SimpleIRCClient:
 
 
 class Event:
+
     """Class representing an IRC event."""
+
     def __init__(self, eventtype, source, target, arguments=None):
         """Constructor of Event objects.
 
@@ -1168,6 +1186,7 @@ _low_level_mapping = {
 
 _low_level_regexp = re.compile(_LOW_LEVEL_QUOTE + "(.)")
 
+
 def mask_matches(nick, mask):
     """Check if a nick matches a mask.
 
@@ -1188,6 +1207,7 @@ nick_characters = string.ascii_letters + string.digits + _special
 _ircstring_translation = string.maketrans(string.ascii_uppercase + "[]\\^",
                                           string.ascii_lowercase + "{}|~")
 
+
 def irc_lower(s):
     """Returns a lowercased string.
 
@@ -1195,6 +1215,7 @@ def irc_lower(s):
     1459).
     """
     return s.translate(_ircstring_translation)
+
 
 def _ctcp_dequote(message):
     """[Internal] Dequote a message according to CTCP specifications.
@@ -1230,14 +1251,14 @@ def _ctcp_dequote(message):
 
         messages = []
         i = 0
-        while i < len(chunks)-1:
+        while i < len(chunks) - 1:
             # Add message if it's non-empty.
             if len(chunks[i]) > 0:
                 messages.append(chunks[i])
 
-            if i < len(chunks)-2:
+            if i < len(chunks) - 2:
                 # Aye!  CTCP tagged data ahead!
-                messages.append(tuple(chunks[i+1].split(" ", 1)))
+                messages.append(tuple(chunks[i + 1].split(" ", 1)))
 
             i = i + 2
 
@@ -1250,12 +1271,14 @@ def _ctcp_dequote(message):
 
         return messages
 
+
 def is_channel(string):
     """Check if a string is a channel name.
 
     Returns true if the argument is a channel name, otherwise false.
     """
     return string and string[0] in "#&+!"
+
 
 def ip_numstr_to_quad(num):
     """Convert an IP number as an integer given in ASCII
@@ -1265,6 +1288,7 @@ def ip_numstr_to_quad(num):
     p = map(str, map(int, [n >> 24 & 0xFF, n >> 16 & 0xFF,
                            n >> 8 & 0xFF, n & 0xFF]))
     return ".".join(p)
+
 
 def ip_quad_to_numstr(quad):
     """Convert an IP address string (e.g. '192.168.0.1') to an IP
@@ -1276,12 +1300,14 @@ def ip_quad_to_numstr(quad):
         s = s[:-1]
     return s
 
+
 def nm_to_n(s):
     """Get the nick part of a nickmask.
 
     (The source of an Event is a nickmask.)
     """
     return s.split("!")[0]
+
 
 def nm_to_uh(s):
     """Get the userhost part of a nickmask.
@@ -1290,12 +1316,14 @@ def nm_to_uh(s):
     """
     return s.split("!")[1]
 
+
 def nm_to_h(s):
     """Get the host part of a nickmask.
 
     (The source of an Event is a nickmask.)
     """
     return s.split("@")[1]
+
 
 def nm_to_u(s):
     """Get the user part of a nickmask.
@@ -1304,6 +1332,7 @@ def nm_to_u(s):
     """
     s = s.split("!")[1]
     return s.split("@")[0]
+
 
 def parse_nick_modes(mode_string):
     """Parse a nick mode string.
@@ -1320,6 +1349,7 @@ def parse_nick_modes(mode_string):
 
     return _parse_modes(mode_string, "")
 
+
 def parse_channel_modes(mode_string):
     """Parse a channel mode string.
 
@@ -1334,6 +1364,7 @@ def parse_channel_modes(mode_string):
     """
 
     return _parse_modes(mode_string, "bklvo")
+
 
 def _parse_modes(mode_string, unary_modes=""):
     """[Internal]"""
@@ -1365,6 +1396,7 @@ def _parse_modes(mode_string, unary_modes=""):
         else:
             modes.append([sign, ch, None])
     return modes
+
 
 def _ping_ponger(connection, event):
     """[Internal]"""
@@ -1495,7 +1527,7 @@ numeric_events = {
     "423": "noadmininfo",
     "424": "fileerror",
     "431": "nonicknamegiven",
-    "432": "erroneusnickname", # Thiss iz how its speld in thee RFC.
+    "432": "erroneusnickname",  # Thiss iz how its speld in thee RFC.
     "433": "nicknameinuse",
     "436": "nickcollision",
     "437": "unavailresource",  # "Nick temporally unavailable"
@@ -1510,7 +1542,7 @@ numeric_events = {
     "462": "alreadyregistered",
     "463": "nopermforhost",
     "464": "passwdmismatch",
-    "465": "yourebannedcreep", # I love this one...
+    "465": "yourebannedcreep",  # I love this one...
     "466": "youwillbebanned",
     "467": "keyset",
     "471": "channelisfull",

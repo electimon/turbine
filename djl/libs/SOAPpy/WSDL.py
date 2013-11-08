@@ -10,9 +10,11 @@ from Client import SOAPProxy, SOAPAddress
 from Config import Config
 import urllib
 
+
 class Proxy:
+
     """WSDL Proxy.
-    
+
     SOAPProxy wrapper that parses method names, namespaces, soap actions from
     the web service description language (WSDL) file passed into the
     constructor.  The WSDL reference can be passed in as a stream, an url, a
@@ -22,7 +24,7 @@ class Proxy:
     of WSDLTools.SOAPCallinfo.
 
     For example,
-    
+
         url = 'http://www.xmethods.org/sd/2001/TemperatureService.wsdl'
         wsdl = WSDL.Proxy(url)
         print len(wsdl.methods)          # 1
@@ -32,40 +34,41 @@ class Proxy:
     See WSDLTools.SOAPCallinfo for more info on each method's attributes.
     """
 
-    def __init__(self, wsdlsource, config=Config, **kw ):
+    def __init__(self, wsdlsource, config=Config, **kw):
 
         reader = wstools.WSDLTools.WSDLReader()
         self.wsdl = None
 
         # From Mark Pilgrim's "Dive Into Python" toolkit.py--open anything.
         if self.wsdl is None and hasattr(wsdlsource, "read"):
-            #print 'stream'
+            # print 'stream'
             self.wsdl = reader.loadFromStream(wsdlsource)
 
         # NOT TESTED (as of April 17, 2003)
-        #if self.wsdl is None and wsdlsource == '-':
+        # if self.wsdl is None and wsdlsource == '-':
         #    import sys
         #    self.wsdl = reader.loadFromStream(sys.stdin)
         #    print 'stdin'
 
         if self.wsdl is None:
-            try: 
+            try:
                 file(wsdlsource)
                 self.wsdl = reader.loadFromFile(wsdlsource)
-                #print 'file'
-            except (IOError, OSError): 
+                # print 'file'
+            except (IOError, OSError):
                 pass
 
         if self.wsdl is None:
             try:
                 stream = urllib.urlopen(wsdlsource)
                 self.wsdl = reader.loadFromStream(stream, wsdlsource)
-            except (IOError, OSError): pass
+            except (IOError, OSError):
+                pass
 
         if self.wsdl is None:
             import StringIO
             self.wsdl = reader.loadFromString(str(wsdlsource))
-            #print 'string'
+            # print 'string'
 
         # Package wsdl info as a dictionary of remote methods, with method name
         # as key (based on ServiceProxy.__init__ in ZSI library).
@@ -82,7 +85,7 @@ class Proxy:
         self.soapproxy = SOAPProxy('http://localhost/dummy.webservice',
                                    config=config, **kw)
 
-    def __str__(self): 
+    def __str__(self):
         s = ''
         for method in self.methods.values():
             s += str(method)
@@ -93,7 +96,8 @@ class Proxy:
 
         Raises AttributeError is method name is not found."""
 
-        if not self.methods.has_key(name): raise AttributeError, name
+        if not self.methods.has_key(name):
+            raise AttributeError, name
 
         callinfo = self.methods[name]
         self.soapproxy.proxy = SOAPAddress(callinfo.location)
@@ -116,4 +120,3 @@ class Proxy:
                 details = outps[parm]
                 print "   Out #%d: %s  (%s)" % (parm, details.name, details.type)
             print
-

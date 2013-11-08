@@ -1,3 +1,3 @@
 #!/bin/sh
-cd `dirname $0`/djl
-python -O djl.py $*
+cd /usr/share/djl/djl
+python2 -O djl.py $*

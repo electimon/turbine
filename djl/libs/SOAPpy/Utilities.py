@@ -46,24 +46,27 @@ from types import *
 # SOAPpy modules
 from Errors import *
 
-################################################################################
+#
 # Utility infielders
-################################################################################
+#
+
+
 def collapseWhiteSpace(s):
     return re.sub('\s+', ' ', s).strip()
 
+
 def decodeHexString(data):
     conv = {
-            '0': 0x0, '1': 0x1, '2': 0x2, '3': 0x3, '4': 0x4,
-            '5': 0x5, '6': 0x6, '7': 0x7, '8': 0x8, '9': 0x9,
-            
-            'a': 0xa, 'b': 0xb, 'c': 0xc, 'd': 0xd, 'e': 0xe,
-            'f': 0xf,
-            
-            'A': 0xa, 'B': 0xb, 'C': 0xc, 'D': 0xd, 'E': 0xe,
-            'F': 0xf,
-            }
-    
+        '0': 0x0, '1': 0x1, '2': 0x2, '3': 0x3, '4': 0x4,
+        '5': 0x5, '6': 0x6, '7': 0x7, '8': 0x8, '9': 0x9,
+
+        'a': 0xa, 'b': 0xb, 'c': 0xc, 'd': 0xd, 'e': 0xe,
+        'f': 0xf,
+
+        'A': 0xa, 'B': 0xb, 'C': 0xc, 'D': 0xd, 'E': 0xe,
+        'F': 0xf,
+    }
+
     ws = string.whitespace
 
     bin = ''
@@ -110,6 +113,7 @@ def decodeHexString(data):
 
     return bin
 
+
 def encodeHexString(data):
     h = ''
 
@@ -118,12 +122,14 @@ def encodeHexString(data):
 
     return h
 
+
 def leapMonth(year, month):
     return month == 2 and \
         year % 4 == 0 and \
         (year % 100 != 0 or year % 400 == 0)
 
-def cleanDate(d, first = 0):
+
+def cleanDate(d, first=0):
     ranges = (None, (1, 12), (1, 31), (0, 23), (0, 59), (0, 61))
     months = (0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     names = ('year', 'month', 'day', 'hours', 'minutes', 'seconds')
@@ -148,16 +154,18 @@ def cleanDate(d, first = 0):
 
                 d[i] = s
         elif type(s) == LongType:
-            try: s = int(s)
-            except: pass
+            try:
+                s = int(s)
+            except:
+                pass
         elif type(s) != IntType:
             raise TypeError, "%s isn't a valid type" % names[i]
 
         if i == first and s < 0:
             continue
 
-        if ranges[i] != None and \
-            (s < ranges[i][0] or ranges[i][1] < s):
+        if ranges[i] is not None and \
+                (s < ranges[i][0] or ranges[i][1] < s):
             raise ValueError, "%s out of range" % names[i]
 
     if first < 6 and d[5] >= 61:
@@ -169,9 +177,11 @@ def cleanDate(d, first = 0):
         if d[2] > months[d[1]] + leap:
             raise ValueError, "day out of range"
 
+
 def debugHeader(title):
     s = '*** ' + title + ' '
     print s + ('*' * (72 - len(s)))
+
 
 def debugFooter(title):
     print '*' * 72

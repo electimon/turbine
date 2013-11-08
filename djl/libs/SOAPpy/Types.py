@@ -48,26 +48,32 @@ import time
 from types import *
 
 # SOAPpy modules
-from Errors    import *
-from NS        import NS
+from Errors import *
+from NS import NS
 from Utilities import encodeHexString, cleanDate
-from Config    import Config
+from Config import Config
 
-###############################################################################
+#
 # Utility functions
-###############################################################################
+#
 
-def isPrivate(name): return name[0]=='_'
-def isPublic(name):  return name[0]!='_'
 
-###############################################################################
+def isPrivate(name):
+    return name[0] == '_'
+
+
+def isPublic(name):
+    return name[0] != '_'
+
+#
 # Types and Wrappers
-###############################################################################
+#
+
 
 class anyType:
     _validURIs = (NS.XSD, NS.XSD2, NS.XSD3, NS.ENC)
 
-    def __init__(self, data = None, name = None, typed = 1, attrs = None):
+    def __init__(self, data=None, name=None, typed=1, attrs=None):
         if self.__class__ == anyType:
             raise Error, "anyType can't be instantiated directly"
 
@@ -76,7 +82,7 @@ class anyType:
         else:
             self._ns = self._validURIs[0]
             self._name = name
-            
+
         self._typed = typed
         self._attrs = {}
 
@@ -85,11 +91,11 @@ class anyType:
 
         self._data = self._checkValueSpace(data)
 
-        if attrs != None:
+        if attrs is not None:
             self._setAttrs(attrs)
 
     def __str__(self):
-        if hasattr(self,'_name') and self._name:
+        if hasattr(self, '_name') and self._name:
             return "<%s %s at %d>" % (self.__class__, self._name, id(self))
         return "<%s at %d>" % (self.__class__, id(self))
 
@@ -142,7 +148,6 @@ class anyType:
             value = unicode(value)
 
         self._attrs[attr] = value
-            
 
     def _setAttrs(self, attrs):
         if type(attrs) in (ListType, TupleType):
@@ -186,12 +191,15 @@ class anyType:
         raise AttributeError, \
             "not a valid namespace for type %s" % self._type
 
+
 class voidType(anyType):
     pass
 
+
 class stringType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -199,25 +207,51 @@ class stringType(anyType):
 
         return data
 
+
 class untypedType(stringType):
-    def __init__(self, data = None, name = None, attrs = None):
+
+    def __init__(self, data=None, name=None, attrs=None):
         stringType.__init__(self, data, name, 0, attrs)
 
-class IDType(stringType): pass
-class NCNameType(stringType): pass
-class NameType(stringType): pass
-class ENTITYType(stringType): pass
-class IDREFType(stringType): pass
-class languageType(stringType): pass
-class NMTOKENType(stringType): pass
-class QNameType(stringType): pass
+
+class IDType(stringType):
+    pass
+
+
+class NCNameType(stringType):
+    pass
+
+
+class NameType(stringType):
+    pass
+
+
+class ENTITYType(stringType):
+    pass
+
+
+class IDREFType(stringType):
+    pass
+
+
+class languageType(stringType):
+    pass
+
+
+class NMTOKENType(stringType):
+    pass
+
+
+class QNameType(stringType):
+    pass
+
 
 class tokenType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3)
     __invalidre = '[\n\t]|^ | $|  '
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -230,13 +264,14 @@ class tokenType(anyType):
                 raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class normalizedStringType(anyType):
     _validURIs = (NS.XSD3,)
     __invalidre = '[\n\r\t]'
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -250,10 +285,13 @@ class normalizedStringType(anyType):
 
         return data
 
+
 class CDATAType(normalizedStringType):
     _validURIs = (NS.XSD2,)
 
+
 class booleanType(anyType):
+
     def __int__(self):
         return self._data
 
@@ -263,7 +301,7 @@ class booleanType(anyType):
         return ['false', 'true'][self._data]
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if data in (0, '0', 'false', ''):
@@ -272,9 +310,11 @@ class booleanType(anyType):
             return 1
         raise ValueError, "invalid %s value" % self._type
 
+
 class decimalType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType, FloatType):
@@ -282,41 +322,46 @@ class decimalType(anyType):
 
         return data
 
+
 class floatType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType, FloatType) or \
             data < -3.4028234663852886E+38 or \
-            data >  3.4028234663852886E+38:
+                data > 3.4028234663852886E+38:
             raise ValueError, "invalid %s value: %s" % (self._type, repr(data))
 
         return data
 
     def _marshalData(self):
-        return "%.18g" % self._data # More precision
+        return "%.18g" % self._data  # More precision
+
 
 class doubleType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType, FloatType) or \
             data < -1.7976931348623158E+308 or \
-            data  > 1.7976931348623157E+308:
+                data > 1.7976931348623157E+308:
             raise ValueError, "invalid %s value: %s" % (self._type, repr(data))
 
         return data
 
     def _marshalData(self):
-        return "%.18g" % self._data # More precision
+        return "%.18g" % self._data  # More precision
+
 
 class durationType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         try:
@@ -336,12 +381,12 @@ class durationType(anyType):
             f = -1
 
             for i in range(len(data)):
-                if data[i] == None:
+                if data[i] is None:
                     data[i] = 0
                     continue
 
                 if type(data[i]) not in \
-                    (IntType, LongType, FloatType):
+                        (IntType, LongType, FloatType):
                     raise Exception, "element %d a bad type" % i
 
                 if data[i] and f == -1:
@@ -391,7 +436,7 @@ class durationType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             t = 0
 
@@ -417,15 +462,17 @@ class durationType(anyType):
 
         return self._cache
 
+
 class timeDurationType(durationType):
     _validURIs = (NS.XSD, NS.XSD2, NS.ENC)
+
 
 class dateTimeType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.time()
 
             if (type(data) in (IntType, LongType)):
@@ -451,7 +498,7 @@ class dateTimeType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = "%04d-%02d-%02dT%02d:%02d:%02d" % ((abs(d[0]),) + d[1:])
             if d[0] < 0:
@@ -465,12 +512,13 @@ class dateTimeType(anyType):
 
         return self._cache
 
+
 class recurringInstantType(anyType):
     _validURIs = (NS.XSD,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = list(time.gmtime(time.time())[:6])
             if (type(data) in (IntType, LongType)):
                 data = list(time.gmtime(data)[:6])
@@ -492,7 +540,7 @@ class recurringInstantType(anyType):
                 f = len(data)
 
                 for i in range(f):
-                    if data[i] == None:
+                    if data[i] is None:
                         if f < i:
                             raise Exception, \
                                 "only leftmost elements can be none"
@@ -509,7 +557,7 @@ class recurringInstantType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             e = list(d)
             neg = ''
@@ -526,7 +574,7 @@ class recurringInstantType(anyType):
                     e[0] = "%04d" % e[0]
 
             for i in range(1, len(e)):
-                if e[i] == None or (i < 3 and e[i] == 0):
+                if e[i] is None or (i < 3 and e[i] == 0):
                     e[i] = '-'
                 else:
                     if e[i] < 0:
@@ -547,16 +595,20 @@ class recurringInstantType(anyType):
 
         return self._cache
 
+
 class timeInstantType(dateTimeType):
     _validURIs = (NS.XSD, NS.XSD2, NS.ENC)
+
 
 class timePeriodType(dateTimeType):
     _validURIs = (NS.XSD2, NS.ENC)
 
+
 class timeType(anyType):
+
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[3:6]
             elif (type(data) == FloatType):
                 f = data - int(data)
@@ -586,7 +638,7 @@ class timeType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = ''
 
@@ -600,10 +652,12 @@ class timeType(anyType):
 
         return self._cache
 
+
 class dateType(anyType):
+
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[0:3]
             elif type(data) in (IntType, LongType, FloatType):
                 data = time.gmtime(data)[0:3]
@@ -631,7 +685,7 @@ class dateType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = "%04d-%02d-%02dZ" % ((abs(d[0]),) + d[1:])
             if d[0] < 0:
@@ -641,12 +695,13 @@ class dateType(anyType):
 
         return self._cache
 
+
 class gYearMonthType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[0:2]
             elif type(data) in (IntType, LongType, FloatType):
                 data = time.gmtime(data)[0:2]
@@ -674,7 +729,7 @@ class gYearMonthType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = "%04d-%02dZ" % ((abs(d[0]),) + d[1:])
             if d[0] < 0:
@@ -684,12 +739,13 @@ class gYearMonthType(anyType):
 
         return self._cache
 
+
 class gYearType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[0:1]
             elif type(data) in (IntType, LongType, FloatType):
                 data = [data]
@@ -703,8 +759,10 @@ class gYearType(anyType):
                     raise Exception, "too many values"
 
                 if type(data[0]) == FloatType:
-                    try: s = int(data[0])
-                    except: s = long(data[0])
+                    try:
+                        s = int(data[0])
+                    except:
+                        s = long(data[0])
 
                     if s != data[0]:
                         raise Exception, "not integral"
@@ -720,7 +778,7 @@ class gYearType(anyType):
         return data[0]
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = "%04dZ" % abs(d)
             if d < 0:
@@ -730,12 +788,13 @@ class gYearType(anyType):
 
         return self._cache
 
+
 class centuryType(anyType):
     _validURIs = (NS.XSD2, NS.ENC)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[0:1] / 100
             elif type(data) in (IntType, LongType, FloatType):
                 data = [data]
@@ -749,8 +808,10 @@ class centuryType(anyType):
                     raise Exception, "too many values"
 
                 if type(data[0]) == FloatType:
-                    try: s = int(data[0])
-                    except: s = long(data[0])
+                    try:
+                        s = int(data[0])
+                    except:
+                        s = long(data[0])
 
                     if s != data[0]:
                         raise Exception, "not integral"
@@ -766,7 +827,7 @@ class centuryType(anyType):
         return data[0]
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             d = self._data
             s = "%02dZ" % abs(d)
             if d < 0:
@@ -776,15 +837,17 @@ class centuryType(anyType):
 
         return self._cache
 
+
 class yearType(gYearType):
     _validURIs = (NS.XSD2, NS.ENC)
+
 
 class gMonthDayType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[1:3]
             elif type(data) in (IntType, LongType, FloatType):
                 data = time.gmtime(data)[1:3]
@@ -812,20 +875,22 @@ class gMonthDayType(anyType):
         return tuple(data)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = "--%02d-%02dZ" % self._data
 
         return self._cache
 
+
 class recurringDateType(gMonthDayType):
     _validURIs = (NS.XSD2, NS.ENC)
+
 
 class gMonthType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[1:2]
             elif type(data) in (IntType, LongType, FloatType):
                 data = [data]
@@ -839,8 +904,10 @@ class gMonthType(anyType):
                     raise Exception, "too many values"
 
                 if type(data[0]) == FloatType:
-                    try: s = int(data[0])
-                    except: s = long(data[0])
+                    try:
+                        s = int(data[0])
+                    except:
+                        s = long(data[0])
 
                     if s != data[0]:
                         raise Exception, "not integral"
@@ -859,20 +926,22 @@ class gMonthType(anyType):
         return data[0]
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = "--%02d--Z" % self._data
 
         return self._cache
 
+
 class monthType(gMonthType):
     _validURIs = (NS.XSD2, NS.ENC)
+
 
 class gDayType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
         try:
-            if data == None:
+            if data is None:
                 data = time.gmtime(time.time())[2:3]
             elif type(data) in (IntType, LongType, FloatType):
                 data = [data]
@@ -886,8 +955,10 @@ class gDayType(anyType):
                     raise Exception, "too many values"
 
                 if type(data[0]) == FloatType:
-                    try: s = int(data[0])
-                    except: s = long(data[0])
+                    try:
+                        s = int(data[0])
+                    except:
+                        s = long(data[0])
 
                     if s != data[0]:
                         raise Exception, "not integral"
@@ -906,19 +977,21 @@ class gDayType(anyType):
         return data[0]
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = "---%02dZ" % self._data
 
         return self._cache
 
+
 class recurringDayType(gDayType):
     _validURIs = (NS.XSD2, NS.ENC)
+
 
 class hexBinaryType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -927,16 +1000,17 @@ class hexBinaryType(anyType):
         return data
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = encodeHexString(self._data)
 
         return self._cache
+
 
 class base64BinaryType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -945,26 +1019,28 @@ class base64BinaryType(anyType):
         return data
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = base64.encodestring(self._data)
 
         return self._cache
 
+
 class base64Type(base64BinaryType):
     _validURIs = (NS.ENC,)
+
 
 class binaryType(anyType):
     _validURIs = (NS.XSD, NS.ENC)
 
-    def __init__(self, data, name = None, typed = 1, encoding = 'base64',
-        attrs = None):
+    def __init__(self, data, name=None, typed=1, encoding='base64',
+                 attrs=None):
 
         anyType.__init__(self, data, name, typed, attrs)
 
         self._setAttr('encoding', encoding)
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             if self._getAttr((None, 'encoding')) == 'base64':
                 self._cache = base64.encodestring(self._data)
             else:
@@ -973,7 +1049,7 @@ class binaryType(anyType):
         return self._cache
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -985,7 +1061,7 @@ class binaryType(anyType):
         attr = self._fixAttr(attr)
 
         if attr[1] == 'encoding':
-            if attr[0] != None or value not in ('base64', 'hex'):
+            if attr[0] is not None or value not in ('base64', 'hex'):
                 raise AttributeError, "invalid encoding"
 
             self._cache = None
@@ -997,7 +1073,7 @@ class anyURIType(anyType):
     _validURIs = (NS.XSD3,)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (StringType, UnicodeType):
@@ -1006,35 +1082,41 @@ class anyURIType(anyType):
         return data
 
     def _marshalData(self):
-        if self._cache == None:
+        if self._cache is None:
             self._cache = urllib.quote(self._data)
 
         return self._cache
 
+
 class uriType(anyURIType):
     _validURIs = (NS.XSD,)
+
 
 class uriReferenceType(anyURIType):
     _validURIs = (NS.XSD2,)
 
+
 class NOTATIONType(anyType):
-    def __init__(self, data, name = None, typed = 1, attrs = None):
+
+    def __init__(self, data, name=None, typed=1, attrs=None):
 
         if self.__class__ == NOTATIONType:
             raise Error, "a NOTATION can't be instantiated directly"
 
         anyType.__init__(self, data, name, typed, attrs)
 
+
 class ENTITIESType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) in (StringType, UnicodeType):
             return (data,)
 
         if type(data) not in (ListType, TupleType) or \
-            filter (lambda x: type(x) not in (StringType, UnicodeType), data):
+                filter(lambda x: type(x) not in (StringType, UnicodeType), data):
             raise AttributeError, "invalid %s type" % self._type
 
         return data
@@ -1042,12 +1124,19 @@ class ENTITIESType(anyType):
     def _marshalData(self):
         return ' '.join(self._data)
 
-class IDREFSType(ENTITIESType): pass
-class NMTOKENSType(ENTITIESType): pass
+
+class IDREFSType(ENTITIESType):
+    pass
+
+
+class NMTOKENSType(ENTITIESType):
+    pass
+
 
 class integerType(anyType):
+
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType):
@@ -1055,11 +1144,12 @@ class integerType(anyType):
 
         return data
 
+
 class nonPositiveIntegerType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or data > 0:
@@ -1067,17 +1157,19 @@ class nonPositiveIntegerType(anyType):
 
         return data
 
+
 class non_Positive_IntegerType(nonPositiveIntegerType):
     _validURIs = (NS.XSD,)
 
     def _typeName(self):
         return 'non-positive-integer'
 
+
 class negativeIntegerType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or data >= 0:
@@ -1085,73 +1177,79 @@ class negativeIntegerType(anyType):
 
         return data
 
+
 class negative_IntegerType(negativeIntegerType):
     _validURIs = (NS.XSD,)
 
     def _typeName(self):
         return 'negative-integer'
 
+
 class longType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < -9223372036854775808L or \
-            data >  9223372036854775807L:
+                data > 9223372036854775807L:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class intType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < -2147483648L or \
-            data >  2147483647:
+                data > 2147483647:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class shortType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < -32768 or \
-            data >  32767:
+                data > 32767:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class byteType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < -128 or \
-            data >  127:
+                data > 127:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class nonNegativeIntegerType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or data < 0:
@@ -1159,79 +1257,86 @@ class nonNegativeIntegerType(anyType):
 
         return data
 
+
 class non_Negative_IntegerType(nonNegativeIntegerType):
     _validURIs = (NS.XSD,)
 
     def _typeName(self):
         return 'non-negative-integer'
 
+
 class unsignedLongType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < 0 or \
-            data > 18446744073709551615L:
+                data > 18446744073709551615L:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class unsignedIntType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < 0 or \
-            data > 4294967295L:
+                data > 4294967295L:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class unsignedShortType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < 0 or \
-            data > 65535:
+                data > 65535:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class unsignedByteType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or \
             data < 0 or \
-            data > 255:
+                data > 255:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class positiveIntegerType(anyType):
     _validURIs = (NS.XSD2, NS.XSD3, NS.ENC)
 
     def _checkValueSpace(self, data):
-        if data == None:
+        if data is None:
             raise ValueError, "must supply initial %s value" % self._type
 
         if type(data) not in (IntType, LongType) or data <= 0:
             raise ValueError, "invalid %s value" % self._type
 
         return data
+
 
 class positive_IntegerType(positiveIntegerType):
     _validURIs = (NS.XSD,)
@@ -1241,13 +1346,15 @@ class positive_IntegerType(positiveIntegerType):
 
 # Now compound types
 
+
 class compoundType(anyType):
-    def __init__(self, data = None, name = None, typed = 1, attrs = None):
+
+    def __init__(self, data=None, name=None, typed=1, attrs=None):
         if self.__class__ == compoundType:
             raise Error, "a compound can't be instantiated directly"
 
         anyType.__init__(self, data, name, typed, attrs)
-        self._keyord    = []
+        self._keyord = []
 
         if type(data) == DictType:
             self.__dict__.update(data)
@@ -1256,26 +1363,27 @@ class compoundType(anyType):
         if item is not None:
             return self.__dict__[self._keyord[item]]
         else:
-            return map( lambda x: self.__dict__[x], self._keyord)
+            return map(lambda x: self.__dict__[x], self._keyord)
 
     def _asdict(self, item=None, encoding=Config.dict_encoding):
         if item is not None:
-            if type(item) in (UnicodeType,StringType):
+            if type(item) in (UnicodeType, StringType):
                 item = item.encode(encoding)
             return self.__dict__[item]
         else:
             retval = {}
-            def fun(x): retval[x.encode(encoding)] = self.__dict__[x]
+
+            def fun(x):
+                retval[x.encode(encoding)] = self.__dict__[x]
 
             if hasattr(self, '_keyord'):
-                map( fun, self._keyord)
+                map(fun, self._keyord)
             else:
                 for name in dir(self):
                     if isPublic(name):
-                        retval[name] = getattr(self,name)
+                        retval[name] = getattr(self, name)
             return retval
 
- 
     def __getitem__(self, item):
         if type(item) == IntType:
             return self.__dict__[self._keyord[item]]
@@ -1291,7 +1399,7 @@ class compoundType(anyType):
     def _keys(self):
         return filter(lambda x: x[0] != '_', self.__dict__.keys())
 
-    def _addItem(self, name, value, attrs = None):
+    def _addItem(self, name, value, attrs=None):
 
         if name in self._keyord:
             if type(self.__dict__[name]) != ListType:
@@ -1300,8 +1408,8 @@ class compoundType(anyType):
         else:
             self.__dict__[name] = value
             self._keyord.append(name)
-            
-    def _placeItem(self, name, value, pos, subpos = 0, attrs = None):
+
+    def _placeItem(self, name, value, pos, subpos=0, attrs=None):
 
         if subpos == 0 and type(self.__dict__[name]) != ListType:
             self.__dict__[name] = value
@@ -1310,8 +1418,7 @@ class compoundType(anyType):
 
         self._keyord[pos] = name
 
-
-    def _getItemAsList(self, name, default = []):
+    def _getItemAsList(self, name, default=[]):
         try:
             d = self.__dict__[name]
         except:
@@ -1327,24 +1434,29 @@ class compoundType(anyType):
     def __repr__(self):
         return self.__str__()
 
+
 class structType(compoundType):
     pass
+
 
 class headerType(structType):
     _validURIs = (NS.ENV,)
 
-    def __init__(self, data = None, typed = 1, attrs = None):
+    def __init__(self, data=None, typed=1, attrs=None):
         structType.__init__(self, data, "Header", typed, attrs)
+
 
 class bodyType(structType):
     _validURIs = (NS.ENV,)
 
-    def __init__(self, data = None, typed = 1, attrs = None):
+    def __init__(self, data=None, typed=1, attrs=None):
         structType.__init__(self, data, "Body", typed, attrs)
 
+
 class arrayType(UserList.UserList, compoundType):
-    def __init__(self, data = None, name = None, attrs = None,
-        offset = 0, rank = None, asize = 0, elemsname = None):
+
+    def __init__(self, data=None, name=None, attrs=None,
+                 offset=0, rank=None, asize=0, elemsname=None):
 
         if data:
             if type(data) not in (ListType, TupleType):
@@ -1355,7 +1467,7 @@ class arrayType(UserList.UserList, compoundType):
 
         self._elemsname = elemsname or "item"
 
-        if data == None:
+        if data is None:
             self._rank = rank
 
             # According to 5.4.2.2 in the SOAP spec, each element in a
@@ -1375,14 +1487,14 @@ class arrayType(UserList.UserList, compoundType):
             if asize in ('', None):
                 asize = '0'
 
-            self._dims = map (lambda x: int(x), str(asize).split(','))
+            self._dims = map(lambda x: int(x), str(asize).split(','))
             self._dims.reverse()   # It's easier to work with this way
             self._poss = [0] * len(self._dims)      # This will end up
                                                     # reversed too
 
             for i in range(len(self._dims)):
                 if self._dims[i] < 0 or \
-                    self._dims[i] == 0 and len(self._dims) > 1:
+                        self._dims[i] == 0 and len(self._dims) > 1:
                     raise TypeError, "invalid Array dimensions"
 
                 if offset > 0:
@@ -1406,7 +1518,6 @@ class arrayType(UserList.UserList, compoundType):
 
             self.data = a
 
-
     def _aslist(self, item=None):
         if item is not None:
             return self.data[int(item)]
@@ -1415,16 +1526,18 @@ class arrayType(UserList.UserList, compoundType):
 
     def _asdict(self, item=None, encoding=Config.dict_encoding):
         if item is not None:
-            if type(item) in (UnicodeType,StringType):
+            if type(item) in (UnicodeType, StringType):
                 item = item.encode(encoding)
             return self.data[int(item)]
         else:
             retval = {}
-            def fun(x): retval[str(x).encode(encoding)] = self.data[x]
-            
-            map( fun, range(len(self.data)) )
+
+            def fun(x):
+                retval[str(x).encode(encoding)] = self.data[x]
+
+            map(fun, range(len(self.data)))
             return retval
- 
+
     def __getitem__(self, item):
         try:
             return self.data[int(item)]
@@ -1449,7 +1562,7 @@ class arrayType(UserList.UserList, compoundType):
 
         pos = attrs.get((NS.ENC, 'position'))
 
-        if pos != None:
+        if pos is not None:
             if self._posstate == 0:
                 raise AttributeError, \
                     "all elements in a sparse Array must have a " \
@@ -1459,7 +1572,7 @@ class arrayType(UserList.UserList, compoundType):
 
             try:
                 if pos[0] == '[' and pos[-1] == ']':
-                    pos = map (lambda x: int(x), pos[1:-1].split(','))
+                    pos = map(lambda x: int(x), pos[1:-1].split(','))
                     pos.reverse()
 
                     if len(pos) == 1:
@@ -1509,7 +1622,7 @@ class arrayType(UserList.UserList, compoundType):
 
         a[curpos[0]] = value
 
-        if pos == None:
+        if pos is None:
             self._poss[0] += 1
 
             for i in range(len(self._dims) - 1):
@@ -1521,10 +1634,10 @@ class arrayType(UserList.UserList, compoundType):
 
             if self._dims[-1] and self._poss[-1] >= self._dims[-1]:
                 #self._full = 1
-                #FIXME: why is this occuring?
+                # FIXME: why is this occuring?
                 pass
 
-    def _placeItem(self, name, value, pos, subpos, attrs = None):
+    def _placeItem(self, name, value, pos, subpos, attrs=None):
         curpos = [0] * len(self._dims)
 
         for i in range(len(self._dims)):
@@ -1551,35 +1664,41 @@ class arrayType(UserList.UserList, compoundType):
 
         a[curpos[0]] = value
 
+
 class typedArrayType(arrayType):
-    def __init__(self, data = None, name = None, typed = None, attrs = None,
-        offset = 0, rank = None, asize = 0, elemsname = None, complexType = 0):
+
+    def __init__(self, data=None, name=None, typed=None, attrs=None,
+                 offset=0, rank=None, asize=0, elemsname=None, complexType=0):
 
         arrayType.__init__(self, data, name, attrs, offset, rank, asize,
-            elemsname)
+                           elemsname)
 
         self._typed = 1
         self._type = typed
         self._complexType = complexType
 
+
 class faultType(structType, Error):
-    def __init__(self, faultcode = "", faultstring = "", detail = None):
+
+    def __init__(self, faultcode="", faultstring="", detail=None):
         self.faultcode = faultcode
         self.faultstring = faultstring
-        if detail != None:
+        if detail is not None:
             self.detail = detail
 
         structType.__init__(self, None, 0)
 
-    def _setDetail(self, detail = None):
-        if detail != None:
+    def _setDetail(self, detail=None):
+        if detail is not None:
             self.detail = detail
         else:
-            try: del self.detail
-            except AttributeError: pass
+            try:
+                del self.detail
+            except AttributeError:
+                pass
 
     def __repr__(self):
-        if getattr(self, 'detail', None) != None:
+        if getattr(self, 'detail', None) is not None:
             return "<Fault %s: %s: %s>" % (self.faultcode,
                                            self.faultstring,
                                            self.detail)
@@ -1589,9 +1708,11 @@ class faultType(structType, Error):
     __str__ = __repr__
 
     def __call__(self):
-        return (self.faultcode, self.faultstring, self.detail)        
+        return (self.faultcode, self.faultstring, self.detail)
+
 
 class SOAPException(Exception):
+
     def __init__(self, code="", string="", detail=None):
         self.value = ("SOAPpy SOAP Exception", code, string, detail)
         self.code = code
@@ -1601,14 +1722,18 @@ class SOAPException(Exception):
     def __str__(self):
         return repr(self.value)
 
+
 class RequiredHeaderMismatch(Exception):
+
     def __init__(self, value):
         self.value = value
 
     def __str__(self):
         return repr(self.value)
 
+
 class MethodNotFound(Exception):
+
     def __init__(self, value):
         (val, detail) = value.split(":")
         self.value = val
@@ -1617,23 +1742,28 @@ class MethodNotFound(Exception):
     def __str__(self):
         return repr(self.value, self.detail)
 
+
 class AuthorizationFailed(Exception):
+
     def __init__(self, value):
         self.value = value
 
     def __str__(self):
         return repr(self.value)
+
 
 class MethodFailed(Exception):
+
     def __init__(self, value):
         self.value = value
 
     def __str__(self):
         return repr(self.value)
-        
-#######
+
+#
 # Convert complex SOAPpy objects to native python equivalents
-#######
+#
+
 
 def simplify(object, level=0):
     """
@@ -1642,17 +1772,17 @@ def simplify(object, level=0):
     This function recursively converts the passed 'container' object,
     and all public subobjects. (Private subobjects have names that
     start with '_'.)
-    
+
     Conversions:
     - faultType    --> raise python exception
     - arrayType    --> array
     - compoundType --> dictionary
     """
-    
+
     if level > 10:
         return object
-    
-    if isinstance( object, faultType ):
+
+    if isinstance(object, faultType):
         if object.faultstring == "Required Header Misunderstood":
             raise RequiredHeaderMismatch(object.detail)
         elif object.faultstring == "Method Not Found":
@@ -1665,23 +1795,23 @@ def simplify(object, level=0):
             se = SOAPException(object.faultcode, object.faultstring,
                                object.detail)
             raise se
-    elif isinstance( object, arrayType ):
+    elif isinstance(object, arrayType):
         data = object._aslist()
         for k in range(len(data)):
-            data[k] = simplify(data[k], level=level+1)
+            data[k] = simplify(data[k], level=level + 1)
         return data
-    elif isinstance( object, compoundType ) or isinstance(object, structType):
+    elif isinstance(object, compoundType) or isinstance(object, structType):
         data = object._asdict()
         for k in data.keys():
             if isPublic(k):
-                data[k] = simplify(data[k], level=level+1)
+                data[k] = simplify(data[k], level=level + 1)
         return data
-    elif type(object)==DictType:
+    elif type(object) == DictType:
         for k in object.keys():
             if isPublic(k):
                 object[k] = simplify(object[k])
         return object
-    elif type(object)==list:
+    elif type(object) == list:
         for k in range(len(object)):
             object[k] = simplify(object[k])
         return object
@@ -1695,42 +1825,41 @@ def simplify_contents(object, level=0):
 
     This function recursively converts the sub-objects contained in a
     'container' object to simple python types.
-    
+
     Conversions:
     - faultType    --> raise python exception
     - arrayType    --> array
     - compoundType --> dictionary
     """
-    
-    if level>10: return object
 
-    if isinstance( object, faultType ):
+    if level > 10:
+        return object
+
+    if isinstance(object, faultType):
         for k in object._keys():
             if isPublic(k):
-                setattr(object, k, simplify(object[k], level=level+1))
+                setattr(object, k, simplify(object[k], level=level + 1))
         raise object
-    elif isinstance( object, arrayType ): 
+    elif isinstance(object, arrayType):
         data = object._aslist()
         for k in range(len(data)):
-            object[k] = simplify(data[k], level=level+1)
+            object[k] = simplify(data[k], level=level + 1)
     elif isinstance(object, structType):
         data = object._asdict()
         for k in data.keys():
             if isPublic(k):
-                setattr(object, k, simplify(data[k], level=level+1))
-    elif isinstance( object, compoundType ) :
+                setattr(object, k, simplify(data[k], level=level + 1))
+    elif isinstance(object, compoundType):
         data = object._asdict()
         for k in data.keys():
             if isPublic(k):
-                object[k] = simplify(data[k], level=level+1)
-    elif type(object)==DictType:
+                object[k] = simplify(data[k], level=level + 1)
+    elif type(object) == DictType:
         for k in object.keys():
             if isPublic(k):
                 object[k] = simplify(object[k])
-    elif type(object)==list:
+    elif type(object) == list:
         for k in range(len(object)):
             object[k] = simplify(object[k])
-    
+
     return object
-
-

@@ -36,19 +36,21 @@
 ident = '$Id: Config.py,v 1.9 2004/01/31 04:20:05 warnes Exp $'
 from version import __version__
 
-import copy, socket
+import copy
+import socket
 from types import *
 
-from NS import NS 
+from NS import NS
 
-################################################################################
+#
 # Configuration class
-################################################################################
+#
+
 
 class SOAPConfig:
     __readonly = ('SSLserver', 'SSLclient', 'GSIserver', 'GSIclient')
 
-    def __init__(self, config = None, **kw):
+    def __init__(self, config=None, **kw):
         d = self.__dict__
 
         if config:
@@ -62,7 +64,7 @@ class SOAPConfig:
                 if k[0] != '_':
                     d[k] = v
         else:
-            # Setting debug also sets returnFaultInfo, 
+            # Setting debug also sets returnFaultInfo,
             # dumpHeadersIn, dumpHeadersOut, dumpSOAPIn, and dumpSOAPOut
             self.debug = 0
             self.dumpFaultInfo = 1
@@ -112,13 +114,12 @@ class SOAPConfig:
 
             # Globus Support if pyGlobus.io available
             try:
-                from pyGlobus import io;
+                from pyGlobus import io
                 d['GSIserver'] = 1
                 d['GSIclient'] = 1
             except:
                 d['GSIserver'] = 0
                 d['GSIclient'] = 0
-                
 
             # Server SSL support if M2Crypto.SSL available
             try:
@@ -193,8 +194,8 @@ class SOAPConfig:
                 d['dumpHeadersIn']      = \
                 d['dumpHeadersOut']     = \
                 d['dumpSOAPIn']         = \
-                d['dumpSOAPOut']        = value
-            
+                d['dumpSOAPOut'] = value
+
         else:
             d[name] = value
 

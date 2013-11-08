@@ -43,8 +43,8 @@ import fpconst
 
 # SOAPpy modules
 from Config import Config
-from NS     import NS
-from Types  import *
+from NS import NS
+from Types import *
 
 # Test whether this Python version has Types.BooleanType
 # If it doesn't have it, then False and True are serialized as integers
@@ -54,55 +54,58 @@ try:
 except NameError:
     pythonHasBooleanType = 0
 
-################################################################################
+#
 # SOAP Builder
-################################################################################
+#
+
+
 class SOAPBuilder:
     _xml_top = '<?xml version="1.0"?>\n'
     _xml_enc_top = '<?xml version="1.0" encoding="%s"?>\n'
-    _env_top = ( '%(ENV_T)s:Envelope\n' + \
-                 '  %(ENV_T)s:encodingStyle="%(ENC)s"\n' ) % \
-                 NS.__dict__
+    _env_top = ('%(ENV_T)s:Envelope\n' +
+                '  %(ENV_T)s:encodingStyle="%(ENC)s"\n' ) % \
+        NS.__dict__
     _env_bot = '</%(ENV_T)s:Envelope>\n' % NS.__dict__
 
     # Namespaces potentially defined in the Envelope tag.
 
     _env_ns = {NS.ENC: NS.ENC_T, NS.ENV: NS.ENV_T,
-        NS.XSD: NS.XSD_T, NS.XSD2: NS.XSD2_T, NS.XSD3: NS.XSD3_T,
-        NS.XSI: NS.XSI_T, NS.XSI2: NS.XSI2_T, NS.XSI3: NS.XSI3_T}
+               NS.XSD: NS.XSD_T, NS.XSD2: NS.XSD2_T, NS.XSD3: NS.XSD3_T,
+               NS.XSI: NS.XSI_T, NS.XSI2: NS.XSI2_T, NS.XSI3: NS.XSI3_T}
 
-    def __init__(self, args = (), kw = {}, method = None, namespace = None,
-        header = None, methodattrs = None, envelope = 1, encoding = 'UTF-8',
-        use_refs = 0, config = Config, noroot = 0):
+    def __init__(self, args=(), kw = {}, method = None, namespace = None,
+                 header = None, methodattrs = None, envelope = 1, encoding = 'UTF-8',
+                 use_refs = 0, config = Config, noroot = 0):
 
         # Test the encoding, raising an exception if it's not known
-        if encoding != None:
+        if encoding is not None:
             ''.encode(encoding)
 
-        self.args       = args
-        self.kw         = kw
-        self.envelope   = envelope
-        self.encoding   = encoding
-        self.method     = method
-        self.namespace  = namespace
-        self.header     = header
-        self.methodattrs= methodattrs
-        self.use_refs   = use_refs
-        self.config     = config
-        self.out        = []
-        self.tcounter   = 0
-        self.ncounter   = 1
-        self.icounter   = 1
-        self.envns      = {}
-        self.ids        = {}
-        self.depth      = 0
-        self.multirefs  = []
-        self.multis     = 0
-        self.body       = not isinstance(args, bodyType)
-        self.noroot     = noroot
+        self.args = args
+        self.kw = kw
+        self.envelope = envelope
+        self.encoding = encoding
+        self.method = method
+        self.namespace = namespace
+        self.header = header
+        self.methodattrs = methodattrs
+        self.use_refs = use_refs
+        self.config = config
+        self.out = []
+        self.tcounter = 0
+        self.ncounter = 1
+        self.icounter = 1
+        self.envns = {}
+        self.ids = {}
+        self.depth = 0
+        self.multirefs = []
+        self.multis = 0
+        self.body = not isinstance(args, bodyType)
+        self.noroot = noroot
 
     def build(self):
-        if Config.debug: print "In build."
+        if Config.debug:
+            print "In build."
         ns_map = {}
 
         # Cache whether typing is on or not
@@ -110,8 +113,8 @@ class SOAPBuilder:
 
         if self.header:
             # Create a header.
-            self.dump(self.header, "Header", typed = typed)
-            #self.header = None # Wipe it out so no one is using it.
+            self.dump(self.header, "Header", typed=typed)
+            # self.header = None # Wipe it out so no one is using it.
 
         if self.body:
             # Call genns to record that we've used SOAP-ENV.
@@ -144,23 +147,23 @@ class SOAPBuilder:
                 args = self.args
 
             for i in args:
-                self.dump(i, typed = typed, ns_map = ns_map)
+                self.dump(i, typed=typed, ns_map=ns_map)
 
             if hasattr(self.config, "argsOrdering") and self.config.argsOrdering.has_key(self.method):
                 for k in self.config.argsOrdering.get(self.method):
-                    self.dump(self.kw.get(k), k, typed = typed, ns_map = ns_map)                
+                    self.dump(self.kw.get(k), k, typed=typed, ns_map=ns_map)
             else:
                 for (k, v) in self.kw.items():
-                    self.dump(v, k, typed = typed, ns_map = ns_map)
-                
+                    self.dump(v, k, typed=typed, ns_map=ns_map)
+
         except RecursionError:
             if self.use_refs == 0:
                 # restart
-                b = SOAPBuilder(args = self.args, kw = self.kw,
-                    method = self.method, namespace = self.namespace,
-                    header = self.header, methodattrs = self.methodattrs,
-                    envelope = self.envelope, encoding = self.encoding,
-                    use_refs = 1, config = self.config)
+                b = SOAPBuilder(args=self.args, kw=self.kw,
+                                method=self.method, namespace=self.namespace,
+                                header=self.header, methodattrs=self.methodattrs,
+                                envelope=self.envelope, encoding=self.encoding,
+                                use_refs=1, config=self.config)
                 return b.build()
             raise
 
@@ -178,20 +181,20 @@ class SOAPBuilder:
             self.multis = 1
 
             for obj, tag in self.multirefs:
-                self.dump(obj, tag, typed = typed, ns_map = ns_map)
+                self.dump(obj, tag, typed=typed, ns_map=ns_map)
 
             self.out.append("</%sBody>\n" % body_ns)
             self.depth -= 1
 
         if self.envelope:
-            e = map (lambda ns: '  xmlns:%s="%s"\n' % (ns[1], ns[0]),
-                self.envns.items())
+            e = map(lambda ns: '  xmlns:%s="%s"\n' % (ns[1], ns[0]),
+                    self.envns.items())
 
             self.out = ['<', self._env_top] + e + ['>\n'] + \
-                       self.out + \
+                self.out + \
                        [self._env_bot]
 
-        if self.encoding != None:
+        if self.encoding is not None:
             self.out.insert(0, self._xml_enc_top % self.encoding)
             return ''.join(self.out).encode(self.encoding)
 
@@ -199,15 +202,16 @@ class SOAPBuilder:
         return ''.join(self.out)
 
     def gentag(self):
-        if Config.debug: print "In gentag."
+        if Config.debug:
+            print "In gentag."
         self.tcounter += 1
         return "v%d" % self.tcounter
 
     def genns(self, ns_map, nsURI):
-        if nsURI == None:
+        if nsURI is None:
             return ('', '')
 
-        if type(nsURI) == TupleType: # already a tuple
+        if type(nsURI) == TupleType:  # already a tuple
             if len(nsURI) == 2:
                 ns, nsURI = nsURI
             else:
@@ -277,8 +281,9 @@ class SOAPBuilder:
 
     # dumpers
 
-    def dump(self, obj, tag = None, typed = 1, ns_map = {}):
-        if Config.debug: print "In dump.", "obj=", obj
+    def dump(self, obj, tag=None, typed=1, ns_map={}):
+        if Config.debug:
+            print "In dump.", "obj=", obj
         ns_map = ns_map.copy()
         self.depth += 1
 
@@ -300,21 +305,21 @@ class SOAPBuilder:
         else:
             meth(obj, tag, typed, ns_map)
 
-
         self.depth -= 1
 
     # generic dumper
-    def dumper(self, nsURI, obj_type, obj, tag, typed = 1, ns_map = {},
-               rootattr = '', id = '',
-               xml = '<%(tag)s%(type)s%(id)s%(attrs)s%(root)s>%(data)s</%(tag)s>\n'):
-        if Config.debug: print "In dumper."
+    def dumper(self, nsURI, obj_type, obj, tag, typed=1, ns_map={},
+               rootattr='', id='',
+               xml='<%(tag)s%(type)s%(id)s%(attrs)s%(root)s>%(data)s</%(tag)s>\n'):
+        if Config.debug:
+            print "In dumper."
 
-        if nsURI == None:
+        if nsURI is None:
             nsURI = self.config.typesNamespaceURI
 
         tag = tag or self.gentag()
 
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         a = n = t = ''
         if typed and obj_type:
@@ -322,25 +327,28 @@ class SOAPBuilder:
             ins = self.genns(ns_map, self.config.schemaNamespaceURI)[0]
             t = ' %stype="%s%s"%s' % (ins, ns, obj_type, n)
 
-        try: a = obj._marshalAttrs(ns_map, self)
-        except: pass
-
-        try: data = obj._marshalData()
+        try:
+            a = obj._marshalAttrs(ns_map, self)
         except:
-            if (obj_type != "string"): # strings are already encoded
+            pass
+
+        try:
+            data = obj._marshalData()
+        except:
+            if (obj_type != "string"):  # strings are already encoded
                 data = cgi.escape(str(obj))
             else:
                 data = obj
 
-
         return xml % {"tag": tag, "type": t, "data": data, "root": rootattr,
-            "id": id, "attrs": a}
+                      "id": id, "attrs": a}
 
-    def dump_float(self, obj, tag, typed = 1, ns_map = {}):
-        if Config.debug: print "In dump_float."
+    def dump_float(self, obj, tag, typed=1, ns_map={}):
+        if Config.debug:
+            print "In dump_float."
         tag = tag or self.gentag()
 
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         if Config.strict_range:
             doubleType(obj)
@@ -354,43 +362,48 @@ class SOAPBuilder:
         else:
             obj = repr(obj)
 
-	# Note: python 'float' is actually a SOAP 'double'.
+        # Note: python 'float' is actually a SOAP 'double'.
         self.out.append(self.dumper(None, "double", obj, tag, typed, ns_map,
                                     self.genroot(ns_map)))
 
-    def dump_string(self, obj, tag, typed = 0, ns_map = {}):
-        if Config.debug: print "In dump_string."
+    def dump_string(self, obj, tag, typed=0, ns_map={}):
+        if Config.debug:
+            print "In dump_string."
         tag = tag or self.gentag()
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         id = self.checkref(obj, tag, ns_map)
-        if id == None:
+        if id is None:
             return
 
-        try: data = obj._marshalData()
-        except: data = obj
+        try:
+            data = obj._marshalData()
+        except:
+            data = obj
 
         self.out.append(self.dumper(None, "string", cgi.escape(data), tag,
                                     typed, ns_map, self.genroot(ns_map), id))
 
-    dump_str = dump_string # For Python 2.2+
+    dump_str = dump_string  # For Python 2.2+
     dump_unicode = dump_string
 
-    def dump_None(self, obj, tag, typed = 0, ns_map = {}):
-        if Config.debug: print "In dump_None."
+    def dump_None(self, obj, tag, typed=0, ns_map={}):
+        if Config.debug:
+            print "In dump_None."
         tag = tag or self.gentag()
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
         ns = self.genns(ns_map, self.config.schemaNamespaceURI)[0]
 
         self.out.append('<%s %snull="1"%s/>\n' %
                         (tag, ns, self.genroot(ns_map)))
 
-    dump_NoneType = dump_None # For Python 2.2+
+    dump_NoneType = dump_None  # For Python 2.2+
 
-    def dump_list(self, obj, tag, typed = 1, ns_map = {}):
-        if Config.debug: print "In dump_list.",  "obj=", obj
+    def dump_list(self, obj, tag, typed=1, ns_map={}):
+        if Config.debug:
+            print "In dump_list.", "obj=", obj
         tag = tag or self.gentag()
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         if type(obj) == InstanceType:
             data = obj.data
@@ -399,7 +412,7 @@ class SOAPBuilder:
 
         if typed:
             id = self.checkref(obj, tag, ns_map)
-            if id == None:
+            if id is None:
                 return
 
         try:
@@ -407,13 +420,14 @@ class SOAPBuilder:
             empty = 0
         except:
             # preserve type if present
-            if getattr(obj,"_typed",None) and getattr(obj,"_type",None):
-		if getattr(obj, "_complexType", None):
+            if getattr(obj, "_typed", None) and getattr(obj, "_type", None):
+                if getattr(obj, "_complexType", None):
                     sample = typedArrayType(typed=obj._type,
-                                            complexType = obj._complexType)
+                                            complexType=obj._complexType)
                     sample._typename = obj._type
-                    if not getattr(obj,"_ns",None): obj._ns = NS.URN
-		else:
+                    if not getattr(obj, "_ns", None):
+                        obj._ns = NS.URN
+                else:
                     sample = typedArrayType(typed=obj._type)
             else:
                 sample = structType()
@@ -425,7 +439,7 @@ class SOAPBuilder:
         if not empty:
             for i in data[1:]:
                 if type(sample) != type(i) or \
-                    (type(sample) == InstanceType and \
+                    (type(sample) == InstanceType and
                         sample.__class__ != i.__class__):
                     same_type = 0
                     break
@@ -433,10 +447,10 @@ class SOAPBuilder:
         ndecl = ''
         if same_type:
             if (isinstance(sample, structType)) or \
-                   type(sample) == DictType or \
-                   (isinstance(sample, anyType) and \
-                    (getattr(sample, "_complexType", None) and \
-                     sample._complexType)): # force to urn struct
+                type(sample) == DictType or \
+                (isinstance(sample, anyType) and
+                    (getattr(sample, "_complexType", None) and
+                     sample._complexType)):  # force to urn struct
                 try:
                     tns = obj._ns or NS.URN
                 except:
@@ -450,7 +464,7 @@ class SOAPBuilder:
                     typename = "SOAPStruct"
 
                 t = ns + typename
-                                
+
             elif isinstance(sample, anyType):
                 ns = sample._validNamespaceURI(self.config.typesNamespaceURI,
                                                self.config.strictNamespaces)
@@ -460,25 +474,30 @@ class SOAPBuilder:
                 else:
                     t = 'ur-type'
             else:
-		typename = type(sample).__name__
+                typename = type(sample).__name__
 
                 # For Python 2.2+
-                if type(sample) == StringType: typename = 'string'
+                if type(sample) == StringType:
+                    typename = 'string'
 
                 # HACK: unicode is a SOAP string
-                if type(sample) == UnicodeType: typename = 'string'
-                
-		# HACK: python 'float' is actually a SOAP 'double'.
-		if typename=="float": typename="double"  
+                if type(sample) == UnicodeType:
+                    typename = 'string'
+
+                # HACK: python 'float' is actually a SOAP 'double'.
+                if typename == "float":
+                    typename = "double"
                 t = self.genns(ns_map, self.config.typesNamespaceURI)[0] + \
-		    typename
+                    typename
 
         else:
             t = self.genns(ns_map, self.config.typesNamespaceURI)[0] + \
                 "ur-type"
 
-        try: a = obj._marshalAttrs(ns_map, self)
-        except: a = ''
+        try:
+            a = obj._marshalAttrs(ns_map, self)
+        except:
+            a = ''
 
         ens, edecl = self.genns(ns_map, NS.ENC)
         ins, idecl = self.genns(ns_map, self.config.schemaNamespaceURI)
@@ -490,31 +509,37 @@ class SOAPBuilder:
                  self.genroot(ns_map), id, a))
 
         if typed:
-            try: elemsname = obj._elemsname
-            except: elemsname = "item"
+            try:
+                elemsname = obj._elemsname
+            except:
+                elemsname = "item"
         else:
             elemsname = tag
-            
+
         for i in data:
             self.dump(i, elemsname, not same_type, ns_map)
 
-        if typed: self.out.append('</%s>\n' % tag)
+        if typed:
+            self.out.append('</%s>\n' % tag)
 
     dump_tuple = dump_list
 
-    def dump_dictionary(self, obj, tag, typed = 1, ns_map = {}):
-        if Config.debug: print "In dump_dictionary."
+    def dump_dictionary(self, obj, tag, typed=1, ns_map={}):
+        if Config.debug:
+            print "In dump_dictionary."
         tag = tag or self.gentag()
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         id = self.checkref(obj, tag, ns_map)
-        if id == None:
+        if id is None:
             return
 
-        try: a = obj._marshalAttrs(ns_map, self)
-        except: a = ''
+        try:
+            a = obj._marshalAttrs(ns_map, self)
+        except:
+            a = ''
 
-        self.out.append('<%s%s%s%s>\n' % 
+        self.out.append('<%s%s%s%s>\n' %
                         (tag, id, a, self.genroot(ns_map)))
 
         for (k, v) in obj.items():
@@ -523,17 +548,18 @@ class SOAPBuilder:
 
         self.out.append('</%s>\n' % tag)
 
-    dump_dict = dump_dictionary # For Python 2.2+
+    dump_dict = dump_dictionary  # For Python 2.2+
 
-    def dump_instance(self, obj, tag, typed = 1, ns_map = {}):
-        if Config.debug: print "In dump_instance.", "obj=", obj, "tag=", tag
+    def dump_instance(self, obj, tag, typed=1, ns_map={}):
+        if Config.debug:
+            print "In dump_instance.", "obj=", obj, "tag=", tag
         if not tag:
             # If it has a name use it.
             if isinstance(obj, anyType) and obj._name:
                 tag = obj._name
             else:
                 tag = self.gentag()
-        tag = toXMLname(tag) # convert from SOAP 1.2 XML name encoding
+        tag = toXMLname(tag)  # convert from SOAP 1.2 XML name encoding
 
         if isinstance(obj, arrayType):      # Array
             self.dump_list(obj, tag, typed, ns_map)
@@ -553,22 +579,24 @@ class SOAPBuilder:
 
         r = self.genroot(ns_map)
 
-        try: a = obj._marshalAttrs(ns_map, self)
-        except: a = ''
+        try:
+            a = obj._marshalAttrs(ns_map, self)
+        except:
+            a = ''
 
         if isinstance(obj, voidType):     # void
             self.out.append("<%s%s%s></%s>\n" % (tag, a, r, tag))
             return
 
         id = self.checkref(obj, tag, ns_map)
-        if id == None:
+        if id is None:
             return
 
         if isinstance(obj, structType):
             # Check for namespace
             ndecl = ''
             ns = obj._validNamespaceURI(self.config.typesNamespaceURI,
-                self.config.strictNamespaces)
+                                        self.config.strictNamespaces)
             if ns:
                 ns, ndecl = self.genns(ns_map, ns)
                 tag = ns + tag
@@ -585,13 +613,13 @@ class SOAPBuilder:
             # now write out the rest
             for k in keylist:
                 if (k[0] != "_"):
-                    self.dump(getattr(obj,k), k, 1, ns_map)
+                    self.dump(getattr(obj, k), k, 1, ns_map)
 
             if isinstance(obj, bodyType):
                 self.multis = 1
 
                 for v, k in self.multirefs:
-                    self.dump(v, k, typed = typed, ns_map = ns_map)
+                    self.dump(v, k, typed=typed, ns_map=ns_map)
 
             self.out.append('</%s>\n' % tag)
 
@@ -600,11 +628,11 @@ class SOAPBuilder:
 
             if typed:
                 ns = obj._validNamespaceURI(self.config.typesNamespaceURI,
-                    self.config.strictNamespaces)
+                                            self.config.strictNamespaces)
                 if ns:
                     ons, ondecl = self.genns(ns_map, ns)
                     ins, indecl = self.genns(ns_map,
-                        self.config.schemaNamespaceURI)
+                                             self.config.schemaNamespaceURI)
                     t = ' %stype="%s%s"%s%s' % \
                         (ins, ons, obj._type, ondecl, indecl)
 
@@ -621,14 +649,14 @@ class SOAPBuilder:
             self.out.append('</%s>\n' % tag)
 
 
-################################################################################
+#
 # SOAPBuilder's more public interface
-################################################################################
+#
 
 def buildSOAP(args=(), kw={}, method=None, namespace=None,
               header=None, methodattrs=None, envelope=1, encoding='UTF-8',
               config=Config, noroot = 0):
     t = SOAPBuilder(args=args, kw=kw, method=method, namespace=namespace,
-                    header=header, methodattrs=methodattrs,envelope=envelope,
-                    encoding=encoding, config=config,noroot=noroot)
+                    header=header, methodattrs=methodattrs, envelope=envelope,
+                    encoding=encoding, config=config, noroot=noroot)
     return t.build()
