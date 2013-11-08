@@ -1,0 +1,1183 @@
+# translation of djl.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: djl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-22 17:43+0100\n"
+"PO-Revision-Date: 2009-06-20 15:27+0100\n"
+"Last-Translator: Barcza Károly <kbarcza@blackpanther.hu>\n"
+"Language-Team:  <info@blackpanther.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ajout_jeu.py:131
+msgid "Ajouter un raccourci"
+msgstr "Egy parancsikon hozzáadása"
+
+#: ajout_jeu.py:132
+#: ajout_jeu.py:137
+#: configuration.py:441
+#: configuration.py:442
+#: creer_def.py:358
+#: creer_def.py:359
+msgid "Parcourir..."
+msgstr "Böngészés.."
+
+#: ajout_jeu.py:133
+#: creer_def.py:157
+#: creer_def.py:347
+msgid "Nom du jeu:"
+msgstr "A játék neve:"
+
+#: ajout_jeu.py:135
+msgid "Icone:"
+msgstr "Ikon:"
+
+#: ajout_jeu.py:136
+msgid "Commande du jeu:"
+msgstr "Parancs:"
+
+#: ajout_jeu.py:138
+msgid "Sauvegarder et fermer"
+msgstr "Menti és bezárja"
+
+#: configuration.py:22
+#: configuration.py:181
+msgid "Supprimer raccourci de djl du menu KDE/Gnome"
+msgstr "Parancsikon levétele a KDE/Gnome panelról"
+
+#: configuration.py:24
+#: configuration.py:148
+msgid "Ajouter un raccourci de djl dans le menu KDE/Gnome"
+msgstr "Parancsikon létrehozása a KDE/Gnome panelon"
+
+#: configuration.py:149
+msgid "Raccourcis supprime"
+msgstr "Parancsikon törölve"
+
+#: configuration.py:159
+msgid "Name=djl"
+msgstr "Name=djl"
+
+#: configuration.py:161
+msgid "GenericName[fr]=Depot jeux linux"
+msgstr "GenericName[fr]=Depot jeux linux"
+
+#: configuration.py:163
+msgid "GenericName=Depot jeux linux"
+msgstr "GenericName=Linux játékok telepítőforrása"
+
+#: configuration.py:165
+msgid "Comment[fr]=Un gestionnaire de jeux videos pour Linux"
+msgstr "Comment[fr]=Un gestionnaire de jeux videos pour Linux"
+
+#: configuration.py:167
+msgid "Comment=Un gestionnaire de jeux videos pour Linux"
+msgstr "Comment=Linuxos játékok kezelője"
+
+#: configuration.py:180
+msgid "Raccourci cree"
+msgstr "Parancsikon létrehozva"
+
+#: configuration.py:207
+msgid "Ferme"
+msgstr "Rendben"
+
+#: configuration.py:239
+msgid "Attention, soit le repertoire du jeu est deja existant, soit vous n'avez pas les droits suffisants pour ecrire dessus"
+msgstr "Figyelem! A játekok könyvtára már létezik vagy a létrehozáshoz nincs jogosultsága."
+
+#: configuration.py:246
+msgid "Attention, le repertoire de jeux n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Figyelem! A játekok könyvtára már létezik vagy a létrehozáshoz nincs jogosultsága."
+
+#: configuration.py:253
+msgid "Attention, le repertoire d'etat n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Figyelem! A 'státusz' könyvtár már létezik vagy a létrehozáshoz nincs jogosultsága."
+
+#: configuration.py:260
+msgid "Erreur, le repertoire de definition n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Figyelem! A 'definiciós' könyvtár már létezik vagy a létrehozáshoz nincs jogosultsága."
+
+#: configuration.py:267
+msgid "Erreur, le repertoire des raccourcis n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Figyelem! A 'parancsok' könyvtára már létezik vagy a létrehozáshoz nincs jogosultsága."
+
+#: configuration.py:314
+msgid "Le fichier de configuration n'existe pas, il sera cree"
+msgstr "A konfigurációs fájl nem létezett most létrehoztam."
+
+#: configuration.py:336
+msgid "Fichier de configuration ecrit:"
+msgstr "Konfigurációsfájl létrehozva"
+
+#: configuration.py:429
+#: fenetre_principale.py:891
+msgid "Configuration"
+msgstr "Beállítások"
+
+#: configuration.py:433
+msgid ""
+"Ceci est le premier demarrage de djl, vous pouvez le configurer maintenant \n"
+" ou passer cette etape pour vous en tenir a la configuration par defaut."
+msgstr ""
+"Az első alkalomal futtaja a DJL-t ezért most be kell állítania vagy\n"
+" hagyja ki ezt a lépést és akkor az alap beállítások lesznek elmentve."
+
+#: configuration.py:436
+msgid ""
+"Ceci est le menu de configuration de djl. \n"
+"Certaines actions necessiteront le redemarrage du logiciel."
+msgstr ""
+"Ez a DJL beállítások ablaka \n"
+"Több beállítás a DJL újraindítását igényli."
+
+#: configuration.py:439
+msgid "Repertoire d'installation des jeux:"
+msgstr "Játékok telepítési könyvtára:"
+
+#: configuration.py:440
+msgid "Navigateur internet:"
+msgstr "Internet böngésző:"
+
+#: configuration.py:443
+msgid "Supprimer les archives des jeux apres installation."
+msgstr "Játékarchívumok eltávolítása a telepítés után."
+
+#: configuration.py:444
+msgid "Lancer les jeux apres installation."
+msgstr "A játék indítása a telepítés után."
+
+#: configuration.py:445
+msgid "Iconifier djl dans la barre a miniature. (necessite redemarrage)"
+msgstr "Ikonizálja a DJL-t a tálcára. (újraindítás szükséges)"
+
+#: configuration.py:446
+msgid "Verifier la mise a jour de djl au demarrage."
+msgstr "Frissítések ellenőrzése induláskor"
+
+#: configuration.py:447
+msgid "Verifier la mise a jour du depot a son lancement."
+msgstr "A telepítőforrások frissítésének ellenőrzése indítás után"
+
+#: configuration.py:448
+msgid "Afficher la sortie des jeux a leur lancement."
+msgstr "Mutatja a játkok hibakimenetét"
+
+#: configuration.py:449
+msgid ""
+"Lancer les jeux dans un serveur graphique separe\n"
+"(Permet d'eviter les problemes lies a l'utilisation de Compiz, Beryl ou autre)."
+msgstr ""
+"Játékok indítása egy külön X11 szerveren\n"
+"(Problémák lehetnek a Compiz vagy Beryl kiegészítéssel)"
+
+#: configuration.py:450
+msgid "Valider"
+msgstr "Mentés"
+
+#: configuration.py:451
+#: depot.py:198
+#: fenetre_principale.py:698
+#: fenetre_principale.py:1093
+msgid "Fermer"
+msgstr "Rendben"
+
+#: creer_def.py:36
+msgid "Null"
+msgstr "Null"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de tir"
+msgstr "Egyszemélyes lövöldözős"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Strategie"
+msgstr "Stratégia"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Course"
+msgstr "Verseny"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de role"
+msgstr "Szerepjáték"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Sport"
+msgstr "Sport"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Arcade"
+msgstr "Arcade"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Action/Aventure"
+msgstr "Akció/Kaland"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de plateau"
+msgstr "Táblás játékok"
+
+#: creer_def.py:57
+msgid "Fichiers sauvegardes dans:"
+msgstr "A fájl ide lett mentve:"
+
+#: creer_def.py:62
+msgid "Le repertoire du jeu existe deja, un nouveau sera cree"
+msgstr "A játékok könyvtára már létezik, egy új könyvtárat hoztam létre."
+
+#: creer_def.py:180
+msgid "Envoye au serveur ftp"
+msgstr "Feltöltve az ftp szerverre"
+
+#: creer_def.py:181
+msgid "Envoi des fichiers"
+msgstr "Fájlok küldése"
+
+#: creer_def.py:182
+msgid "Les fichiers on ete envoyes, merci."
+msgstr "A fájlok el lettek küldve. Köszönjük."
+
+#: creer_def.py:346
+msgid "Createur de fichiers de definition"
+msgstr "Definiciós fájl kreátor"
+
+#: creer_def.py:348
+msgid "Version:"
+msgstr "Verzió:"
+
+#: creer_def.py:349
+msgid "Nom de l'icone:"
+msgstr "Ikon neve:"
+
+#: creer_def.py:350
+msgid "Nom de l'image:"
+msgstr "Kép neve:"
+
+#: creer_def.py:351
+#: depot.py:193
+msgid "Description:"
+msgstr "Leírás:"
+
+#: creer_def.py:354
+msgid "Lien de telechargement:"
+msgstr "Letöltési link:"
+
+#: creer_def.py:355
+msgid "Commande pour lancer le jeu:"
+msgstr "Játék indítási parancs:"
+
+#: creer_def.py:356
+msgid "Sauvegarder"
+msgstr "Ment"
+
+#: creer_def.py:357
+msgid "Sauvegarder et envoyer au developpeur"
+msgstr "Menti és feltölti a fejlesztőnek"
+
+#: creer_def.py:361
+msgid "Ce qui suit est facultatif"
+msgstr "A követés opcionális"
+
+#: creer_def.py:362
+#: depot.py:201
+msgid "Genre"
+msgstr "Műfaj"
+
+#: creer_def.py:363
+msgid "Taille de l'archive (Mo):"
+msgstr "Archívum mérete (Mb):"
+
+#: creer_def.py:364
+#: depot.py:205
+msgid "Licence"
+msgstr "Licence"
+
+#: creer_def.py:365
+msgid "Site officiel (ou autre lien):"
+msgstr "Hivatalos weboldal (vagy egyéb link):"
+
+#: depot.py:185
+msgid "Depot"
+msgstr "Telepítőforrás"
+
+#: depot.py:188
+#: depot.py:560
+msgid "Jouer"
+msgstr "Indítás"
+
+#: depot.py:189
+msgid "Supprimer"
+msgstr "Eltávolítás"
+
+#: depot.py:190
+msgid "Mettre a jour"
+msgstr "Frissítés"
+
+#: depot.py:191
+msgid "Choisissez un jeu pour avoir une description."
+msgstr "Válasszon egy játékot a leírása letöltéséhez."
+
+#: depot.py:192
+msgid "Liste des jeux disponible:"
+msgstr "Elérhető játékok:"
+
+#: depot.py:194
+#: fenetre_principale.py:886
+msgid "Menu"
+msgstr "Menü"
+
+#: depot.py:196
+msgid "Creer une nouvelle entree"
+msgstr "Létrehoz egy új menüelemet"
+
+#: depot.py:197
+#: depot.py:856
+msgid "Mise a jour du depot"
+msgstr "Telepítőforrás frissítése"
+
+#: depot.py:199
+#: fenetre_principale.py:894
+msgid "Quitter"
+msgstr "Kilépés"
+
+#: depot.py:202
+msgid "Taille"
+msgstr "Méret:"
+
+#: depot.py:203
+msgid "Plate-forme: x86"
+msgstr "Platform: x86"
+
+#: depot.py:204
+msgid "Trier les jeux:"
+msgstr "Játék típus választása:"
+
+#: depot.py:206
+msgid "Plus d'informations..."
+msgstr "Továbbiak..."
+
+#: depot.py:346
+msgid "Avertissement: le jeu "
+msgstr "Figyelmeztetés: a játék"
+
+#: depot.py:346
+msgid " n'a pas de categorie"
+msgstr "nincs kategóriája"
+
+#: depot.py:383
+msgid "Liste des jeux disponible: ("
+msgstr "Elérhető játékok : ("
+
+#: depot.py:410
+#: depot.py:412
+msgid "Genre: Non defini"
+msgstr "Műfaj: Nincs megadva"
+
+#: depot.py:419
+msgid "Taille: ~"
+msgstr "Méret: ~"
+
+#: depot.py:421
+msgid "Taille: Non definie"
+msgstr "Méret: Nincs megadva"
+
+#: depot.py:429
+msgid "Licence: Non definie"
+msgstr "Licence: Nincs megadva"
+
+#: depot.py:456
+msgid "Pas de description disponible."
+msgstr "Nincs elérhető leírás"
+
+#: depot.py:503
+msgid "Pas d'icone disponible"
+msgstr "Nincs elérhető ikon"
+
+#: depot.py:522
+msgid "Pas d'image disponible"
+msgstr "Nincs elérhető kép"
+
+#: depot.py:549
+#: depot.py:570
+#: depot.py:579
+msgid "Installer"
+msgstr "Telepítés"
+
+#: depot.py:552
+#: depot.py:576
+msgid "Etat: Non installe"
+msgstr "Állapota: Nincs telepítve"
+
+#: depot.py:558
+msgid "Etat: Installe"
+msgstr "Állapota: Telepített"
+
+#: depot.py:567
+msgid "Etat: Telecharge"
+msgstr "Állapota: Letöltött"
+
+#: depot.py:649
+#: telecharge_installe.py:328
+msgid "ecrit"
+msgstr "wrote"
+
+#: depot.py:686
+msgid "Impossible de trouver l'adresse de telechargement"
+msgstr "A letöltési link nem található"
+
+#: depot.py:710
+msgid "Attention, le jeu n'a pas ete supprime correctement"
+msgstr "Figyelmeztetés: a játék törlése nem volt teljes."
+
+#: depot.py:860
+msgid "Les mises a jours ou nouvelles entrees suivantes ont ete trouves:"
+msgstr "Itt található a frissítések listája:"
+
+#: depot.py:882
+msgid "Le depot est a jour."
+msgstr "A telepítő forrás a legfrissebb "
+
+#: depot.py:944
+msgid "Tous"
+msgstr "Minden"
+
+#: depot.py:1047
+#: fenetre_principale.py:218
+#: fenetre_principale.py:285
+#: fenetre_principale.py:892
+#: fenetre_principale.py:971
+msgid "Mise a jour de djl"
+msgstr "DJL frissítése"
+
+#: depot.py:1048
+#: fenetre_principale.py:972
+msgid "Ok"
+msgstr "Rendben"
+
+#: depot.py:1049
+#: fenetre_principale.py:973
+msgid "Mise a jour en cours..."
+msgstr "Frissítés folyamatban..."
+
+#: depot.py:1094
+msgid "> Probleme lors du telechargement ?"
+msgstr "> Letöltés sikertelen ?"
+
+#: djl.py:25
+#: telecharge_installe.py:28
+msgid "Erreur lors de l'import des librairies, vous devez installer le paquet python-qt4"
+msgstr "Telepítenie kell a python-qt4-et a DJL futtatásához"
+
+#: djl.py:55
+msgid "Le fichier:"
+msgstr "A fájl: "
+
+#: djl.py:55
+msgid "est manquant, il sera telecharge"
+msgstr "is missing, it'll be downloaded"
+
+#: djl.py:77
+msgid "Ceci est le premier lancement de djl"
+msgstr "Ez a DJL első indítása"
+
+#: djl.py:82
+msgid "Probleme lors de la creation du dossier ~/.djl (probablement deja existant)"
+msgstr "A ~/.djl könyvtárat kihagyja ha már létezik."
+
+#: djl.py:105
+#: fenetre_principale.py:1116
+msgid " le "
+msgstr " on "
+
+#: djl.py:107
+msgid "djl lance \n"
+msgstr "djl indítás \n"
+
+#: djl.py:108
+msgid ">>> id du processus:"
+msgstr ">>> Folyamat azonosító: "
+
+#: fenetre_principale.py:77
+#: fenetre_principale.py:78
+msgid "Impossible d'ecrire dans le repertoire de djl, il ne sera donc pas mis a jour."
+msgstr "You don't have rights to write to the djl directory and soit won't be updated."
+
+#: fenetre_principale.py:179
+msgid "Cliquez pour afficher le menu principal"
+msgstr "Kattintson ide a főablak mutatásához"
+
+#: fenetre_principale.py:197
+msgid "Afficher/Masquer fenetre principale"
+msgstr "Mutatja/Elrejti a főablakot"
+
+#: fenetre_principale.py:219
+msgid ""
+"Vous n'avez pas les doits suffisants pour ecrire dans le repertoire de djl. \n"
+" Il ne sera donc pas mis a jour."
+msgstr "Önnek nincs jogosultsága írni a djl könyvtárba és így nem lehetett frissíteni."
+
+#: fenetre_principale.py:254
+msgid "Mise a jour de djl: "
+msgstr "djl's update"
+
+#: fenetre_principale.py:290
+msgid "Liste des nouveautes: "
+msgstr "Változások: "
+
+#: fenetre_principale.py:294
+msgid "Une mise a jour est disponible: "
+msgstr "Új frissítés elérhető: "
+
+#: fenetre_principale.py:303
+msgid "djl est a jour: "
+msgstr "djl most a legfrissebb: "
+
+#: fenetre_principale.py:314
+msgid "Depot ouvert."
+msgstr "Telepítőforrás megnyitva,."
+
+#: fenetre_principale.py:321
+msgid "Quitte"
+msgstr "Kilépés"
+
+#: fenetre_principale.py:322
+msgid "djl quitte."
+msgstr "kilépés djl-ből"
+
+#: fenetre_principale.py:428
+#: fenetre_principale.py:889
+msgid "Importer un raccourci"
+msgstr "Egy parancsikon importálása a DJL-be"
+
+#: fenetre_principale.py:428
+msgid "Fichiers .desktop (*.desktop)"
+msgstr ".desktop fájlok (*.desktop)"
+
+#: fenetre_principale.py:445
+#: fenetre_principale.py:446
+msgid " supprime"
+msgstr " törölve"
+
+#: fenetre_principale.py:466
+#: telecharge_installe.py:464
+msgid " lance !"
+msgstr " indítás !"
+
+#: fenetre_principale.py:559
+msgid "icone introuvable:"
+msgstr "az ikon nincs meg:"
+
+#: fenetre_principale.py:571
+#: fenetre_principale.py:591
+msgid "L'icone du raccourcis"
+msgstr "Parancsikon"
+
+#: fenetre_principale.py:571
+#: fenetre_principale.py:591
+msgid "n'a pas ete trouve, elle a ete remplace par l'icone de djl."
+msgstr "was not found, it has been replaced by djl's icon"
+
+#: fenetre_principale.py:672
+msgid "Informations systeme..."
+msgstr "Rendszer információk..."
+
+#: fenetre_principale.py:673
+msgid "Informations systeme consultes"
+msgstr "Rendszerinformációs nézet"
+
+#: fenetre_principale.py:674
+#: fenetre_principale.py:897
+msgid "Informations systeme"
+msgstr "Rendszer információk"
+
+#: fenetre_principale.py:676
+msgid "Systeme d'exploitation: "
+msgstr "Operációs rendszer:"
+
+#: fenetre_principale.py:678
+msgid "Nom de la machine: "
+msgstr "Számítógép neve: "
+
+#: fenetre_principale.py:680
+msgid "Architecture: "
+msgstr "Architektúra:"
+
+#: fenetre_principale.py:682
+msgid "Environnement:  "
+msgstr "Környezet: "
+
+#: fenetre_principale.py:684
+msgid "Processeur: "
+msgstr "CPU: "
+
+#: fenetre_principale.py:686
+msgid "Fabricant de la carte graphique: "
+msgstr "GPU gyártjója: "
+
+#: fenetre_principale.py:688
+msgid "Nom de la carte graphique: "
+msgstr "GPU neve: "
+
+#: fenetre_principale.py:690
+msgid "Version du pilote graphique: "
+msgstr "GPU meghajtó verziója: "
+
+#: fenetre_principale.py:694
+msgid "Memoire vive: "
+msgstr "Memória: "
+
+#: fenetre_principale.py:696
+msgid "Carte son : "
+msgstr "Hangkártya: "
+
+#: fenetre_principale.py:734
+#: fenetre_principale.py:902
+msgid "A propos..."
+msgstr "Névjegy"
+
+#: fenetre_principale.py:735
+msgid "A propos de djl"
+msgstr "DJL névjegye"
+
+#: fenetre_principale.py:736
+msgid "Depot jeux linux "
+msgstr "Depot jeux linux "
+
+#: fenetre_principale.py:736
+msgid " par Diablo150 sous licence GPL 3."
+msgstr " by Diablo150 under the GPLv3 licence."
+
+#: fenetre_principale.py:737
+msgid "Merci aux principaux contributeurs:"
+msgstr "Thanks to main contributors: "
+
+#: fenetre_principale.py:738
+msgid "Mes deux freres."
+msgstr "Az én két testvérem."
+
+#: fenetre_principale.py:739
+msgid "Lululaglue, Jerhum, Julroy67 et sebastienb de jeuxlinux.fr."
+msgstr "Lululaglue, Jerhum, Julroy67 and sebastienb from jeuxlinux.fr."
+
+#: fenetre_principale.py:740
+msgid "Ainsi qu'a:"
+msgstr "And also to:"
+
+#: fenetre_principale.py:887
+msgid "Installer/Supprimer un jeu avec le depot"
+msgstr "Install/remove a game through the repository"
+
+#: fenetre_principale.py:888
+msgid "Ajouter un raccourci vers un jeu installe sur le systeme"
+msgstr "Parancsikon készítése a rendszerre már telepített játékokhoz"
+
+#: fenetre_principale.py:890
+msgid "Supprimer le raccourci"
+msgstr "Parancsindító eltávolítása"
+
+#: fenetre_principale.py:893
+msgid "Redemarrer djl"
+msgstr "DJL újraindítása"
+
+#: fenetre_principale.py:896
+msgid "Informations"
+msgstr "Információk"
+
+#: fenetre_principale.py:898
+msgid "Consulter le journal des modifications de djl"
+msgstr "Változások mutatása"
+
+#: fenetre_principale.py:899
+msgid "Consulter l'historique"
+msgstr "Napló mutatása"
+
+#: fenetre_principale.py:900
+msgid "Consulter la sortie des jeux"
+msgstr "Játék hibakimenet mutatása"
+
+#: fenetre_principale.py:901
+msgid "Rapporter une anomalie ou une suggestion..."
+msgstr "Egy hibajelentés vagy javaslat küldése..."
+
+#: fenetre_principale.py:981
+msgid "Mise a jours en cours..."
+msgstr "Frissítés folyamatban..."
+
+#: fenetre_principale.py:996
+msgid "Nombre de fichiers:"
+msgstr "Fájlok"
+
+#: fenetre_principale.py:1013
+msgid "La mise a jour a echouee"
+msgstr "Frissítés sikertelen"
+
+#: fenetre_principale.py:1057
+msgid "Le fichier n'existe pas"
+msgstr "Fájl nem található"
+
+#: fenetre_principale.py:1092
+msgid "Fichier: "
+msgstr "Fájl: "
+
+#: fenetre_principale.py:1102
+msgid "djl redemarre."
+msgstr "djl újraindítva."
+
+#: fenetre_principale.py:1103
+msgid "djl redemarre"
+msgstr "djl újraindítva"
+
+#: telecharge_installe.py:90
+msgid "Telechargement"
+msgstr "Letöltések"
+
+#: telecharge_installe.py:91
+msgid "Annuler"
+msgstr "Mégsem"
+
+#: telecharge_installe.py:97
+msgid "Telechargement en cours, veuillez patienter"
+msgstr "Letöltés folyamatban, kérem várjon"
+
+#: telecharge_installe.py:97
+msgid "Mo"
+msgstr "Mb"
+
+#: telecharge_installe.py:101
+msgid "Telechargement termine"
+msgstr "Letöltés kész"
+
+#: telecharge_installe.py:109
+msgid "Decompression de l'archive en cours..."
+msgstr "Vár az archívum kicsomagolására..."
+
+#: telecharge_installe.py:129
+#: telecharge_installe.py:160
+msgid "Telechargement annule"
+msgstr "Letöltés megszakítva"
+
+#: telecharge_installe.py:195
+#: telecharge_installe.py:212
+msgid "Le dossier de l'archive n'a pas ete cree"
+msgstr "The archive directory was not created"
+
+#: telecharge_installe.py:306
+msgid "Dossier existant"
+msgstr "A könyvtár már létezik"
+
+#: telecharge_installe.py:331
+msgid "Le fichier de version n'a put etre ecrit"
+msgstr "Version file missing"
+
+#: telecharge_installe.py:341
+msgid "Le dossier du jeu n'a pas ete cree (Loki)"
+msgstr "The game directory has failed to be made"
+
+#: telecharge_installe.py:359
+msgid "/bin n'existe pas (ou plus)"
+msgstr "/bin does not exist"
+
+#: telecharge_installe.py:365
+msgid "Attention, un fichier binaire n'a put etre copie, ceci est inherent a la non uniformitee des archives, ca n'est probablement pas trop grave ("
+msgstr ""
+
+#: telecharge_installe.py:370
+msgid "Le binaire du jeu n'a pas ete rendu executable suite a la levee d'une exception"
+msgstr ""
+
+#: telecharge_installe.py:374
+msgid "Les binaires ont ete ignores"
+msgstr "Binary files ignored"
+
+#: telecharge_installe.py:477
+msgid "dossier 'src' ignore"
+msgstr "'src' directory ignored"
+
+#: telecharge_installe.py:482
+msgid "fichier '.directory ignore"
+msgstr "'.directory' file ignored"
+
+#: telecharge_installe.py:546
+msgid "Le fichier n'a pas ete rendu executable"
+msgstr "Binary file failed to be set executable"
+
+#: telecharge_installe.py:580
+msgid "Serveur X plante"
+msgstr "X server crash/missing"
+
+#: telecharge_installe.py:611
+msgid "Le serveux X a plante, voici le message d'erreur.\n"
+msgstr "X server crash/missing, here is the ouput \n"
+
+#: telecharge_installe.py:614
+msgid ""
+"\n"
+"Vous n'avez pas les droits necessaires pour lancer un second serveur X. \n"
+"Sur les systemes bases sur Debian, vous pouvez regler le probleme en lancant:\n"
+" 'dpkg-reconfigure x11-common' \n"
+" Et permettre a tout le monde de lancer X11."
+msgstr ""
+"\n"
+"You don't have rights to run a new x server. \n"
+"On Debian based systems, you can fix this with:\n"
+"'dpkg-reconfigure x11-common' \n"
+"And so allow X11 launch for all users"
+
+#: telecharge_installe.py:619
+msgid "Le serveux X a plante"
+msgstr "X szerver összeomlás"
+
+#: telecharge_installe.py:632
+msgid "Erreur lors du lancement du jeu"
+msgstr "Hiba a játék indításakor"
+
+#: telecharge_installe.py:638
+msgid "Une erreur s'est produite avec "
+msgstr "Hiba ezzel"
+
+#: telecharge_installe.py:638
+msgid ""
+". \n"
+"Voici le message d'erreur: \n"
+msgstr ""
+". \n"
+"Here is the error string: \n"
+
+#: telecharge_installe.py:640
+msgid "Le jeu "
+msgstr "A játék"
+
+#: telecharge_installe.py:640
+msgid " n'a put etre lance correctement. Merci de lire les eventuels messages d'erreur dans le terminal et rapporter le bogue au developpeur."
+msgstr " Failed to launch. This is expected to be a bug. Please report it to developers "
+
+#: telecharge_installe.py:645
+msgid ""
+"\n"
+" Wine n'a put lancer le jeu."
+msgstr ""
+"\n"
+" Wine failed to launch the game."
+
+#: telecharge_installe.py:650
+#: telecharge_installe.py:654
+msgid ""
+"\n"
+" La carte son est probablement occupee par un autre processus."
+msgstr ""
+"\n"
+" The sound card might be used by other processes."
+
+#: telecharge_installe.py:674
+msgid ""
+"\n"
+" Solution possible, installer la librairie python '"
+msgstr ""
+"\n"
+" Suggest: install the python lib '"
+
+#: telecharge_installe.py:700
+msgid "introuvable"
+msgstr "nincs meg"
+
+#: telecharge_installe.py:702
+msgid ""
+"\n"
+" Solution possible, installer la librairie "
+msgstr ""
+"\n"
+" Suggestion, install the library "
+
+#: telecharge_installe.py:702
+msgid ", version "
+msgstr ", verzió"
+
+msgid "Non defini"
+msgstr "Nincs beállítva"
+
+msgid "Langue"
+msgstr "Nyelv"
+
+msgid "(Localisation en Russe)"
+msgstr "(Orosz fordítás)"
+
+msgid "Passer a l'interface simple"
+msgstr "Váltás egyszerűsített felületre"
+
+msgid "Passer a l'interface etendue"
+msgstr "Váltás kiterjesztett felületre"
+
+msgid "Actualites"
+msgstr "Hírek"
+
+msgid "Jeux"
+msgstr "Játékok"
+
+msgid "IRC"
+msgstr "Csevegés"
+
+msgid "Connecte !"
+msgstr "Kapcsolódva !"
+
+msgid "En cours de connexion..."
+msgstr "Kapcsolódás..."
+
+msgid "En cours de telechargement..."
+msgstr "Letöltés folyamatban..."
+
+###1.1.2
+msgid "Pseudo:"
+msgstr "Álnév:"
+
+msgid "Couleur de fond:"
+msgstr "Háttér szín:"
+
+msgid "Blanc"
+msgstr "Fehér"
+
+msgid "Noir"
+msgstr "Fekete"
+
+msgid "Se connecter au demarrage"
+msgstr "Kapcsolódás induláskor"
+
+msgid "Connection"
+msgstr "Kapcsolódás"
+
+msgid "Deconnecte"
+msgstr "Szétkapcsolva"
+
+msgid "Deconnection"
+msgstr "Szétkapcsol"
+
+###
+#Version 1.1.6:
+msgid "Le logiciel Wine n'a pas ete trouve, veuillez l'installer pour continuer."
+msgstr "A Wine szoftver nem található kérem telepítse."
+
+msgid "Vous devez definir le chemin vers un fichier .exe ainsi que le nom du jeu."
+msgstr "Most be kell állítania az .exe elérési útját és a játék nevét."
+
+msgid ""
+"Attention: La stabilitee et les performances du jeu ne sont pas\n"
+"assures, cela depend totalement des capacites du logiciel Wine."
+msgstr "Figyelmeztetés: A stabilítás és a teljesítmény nem garantált"
+
+msgid "Chemin vers l'executable:"
+msgstr "Az exe elérési útja:"
+
+msgid "Ajouter un jeu Windows avec Wine"
+msgstr "Egy Windows játék hozzáadása Wine-vel"
+
+#1.1.10:
+msgid "Arguments"
+msgstr "Opciók"
+
+msgid "Options de lancements:"
+msgstr "Indítási opciók:"
+
+msgid "Arguments de lancement pour"
+msgstr "Indítási opciók ehhez"
+
+msgid "Arguments de lancement"
+msgstr "Indítási opciók"
+
+#1.1.14
+# msgid "Modifier le depot"
+# msgstr "Amend the repository"
+#1.2.0
+msgid "Visiter le site"
+msgstr "Weboldal böngészése"
+
+msgid "Confirmation"
+msgstr "Megerősítés"
+
+msgid "Voulez vous vraiment supprimer le raccourci"
+msgstr "Valóban eltávolítja a parancsikont"
+
+msgid "Voulez vous vraiment supprimer le jeu"
+msgstr "Valóban eltávolítja"
+
+msgid "Site internet"
+msgstr "Weboldal"
+
+msgid "Rechercher des informations sur internet"
+msgstr "Search on internet about this shortcut"
+
+msgid "Chercher"
+msgstr "Keresés"
+
+msgid "N'afficher que les jeux"
+msgstr "Csak a játékok mutatása"
+
+msgid "Ajouter"
+msgstr "Hozzáad"
+
+msgid "Utilisateur expulse"
+msgstr "Kicked"
+
+msgid "Modifier le raccourci"
+msgstr "Parancsikon beállítások szerkesztése"
+
+msgid "Repertoire"
+msgstr "Könyvtár"
+
+msgid "Utilisateur connecte"
+msgstr "User connected"
+
+msgid "Utilisateur deconnecte"
+msgstr "User disconnected"
+
+msgid "Onglet par defaut"
+msgstr "Alapértelmezett fül"
+
+msgid "Impossible d'ecrire dans le repertoire de djl, la mise a jour sera installee dans ~/.djl/src"
+msgstr "The djl's directory is not writable, so the update will be installed on ~/.djl/src"
+
+msgid "lancee"
+msgstr "futtat"
+
+msgid "Controle: "
+msgstr "Bemenet: "
+
+msgid ", djl va tenter de la trouver, sinon elle sera remplacee."
+msgstr ", djl will search it, otherwise it will be replaced."
+
+msgid "Attention"
+msgstr "Figyelmeztetés"
+
+msgid "djl est deja lance"
+msgstr "A DJL már fut"
+
+msgid "Il n'est pas recommande d'utiliser djl en tant qu'utilisateur Root."
+msgstr "Using djl as root user is NOT recommended."
+
+#djl 1.2.1
+msgid "Nom"
+msgstr "Név"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "raccourci"
+msgstr "parancsikonok"
+
+msgid "Dernier lancement"
+msgstr "Az utolsó indítás ideje"
+
+msgid "Date de creation"
+msgstr "Létrehozás dátuma"
+
+msgid "Jeu Windows utilisant Wine"
+msgstr "Windows játék Wine-vel"
+
+msgid "Commande systeme"
+msgstr "Parancs"
+
+msgid "Jeu installe depuis le depot"
+msgstr "Játék telepítve telepítő forrásból"
+
+msgid "Repertoire d'installation"
+msgstr "Telepítési könyvtár"
+
+msgid "Date d'installation"
+msgstr "Telepítési idő"
+
+msgid "Espace utilise"
+msgstr "Felhasznált hely"
+
+msgid "(Non connecte)"
+msgstr "(Kapcsolat nélkül)"
+
+#djl 1.2.1
+msgid "Traducteurs:"
+msgstr "Fordítók:"
+
+#djl 1.2.4
+msgid "Pour plus d'informations, vous pouvez consulter la sortie d'erreur du jeu dans le menu 'Information/Consulter' la sortie des jeux."
+msgstr "A további információkhoz ugorjon a menüben az 'Információk/Mutassa a játékok hibakimenetét' menüpontra."
+
+msgid "C'est probablement une incompatibilite entre librairies partages."
+msgstr "This can be an incompatibility with shared libs."
+
+#djl 1.2.5
+msgid "Taille des polices:"
+msgstr "Fontok mérete:"
+
+msgid "Canaux a utiliser (sur irc.freenode.net), separes par des espaces"
+msgstr "A következő csatornákhoz csatlakozzon induláskor (szóközzel elválasztva)."
+
+msgid "a"
+msgstr "at"
+
+msgid "Temps restant:"
+msgstr "Hatralevo ido:"
+
+msgid "Non trouve"
+msgstr "Nincs meg"
+
+msgid "Installer une librairie manquante"
+msgstr "Hiányzó programkönyvtár letöltése"
+
+msgid "Gestionnaire des modules"
+msgstr "Modulok kezelése"
+
+#1.2.8
+msgid "Verifier les dependances"
+msgstr "Függőségek ellenőrzése"
+
+msgid "Dependances non satisfaites"
+msgstr "Hiányzó függőségek"
+
+msgid "Toutes les dependances semblent satisfaites"
+msgstr "Nem függőségi problémát találtam"
+
+msgid "Erreur"
+msgstr "Hiba"
+
+msgid "Envoyer"
+msgstr "Elküld"
+
+msgid "Rafraichir"
+msgstr "Újratölt"
+
+msgid "Ko/s"
+msgstr "Kb/s"
+
+msgid "Modules"
+msgstr "Modulok"
+
+msgid "Le jeu est en cours de lancement"
+msgstr "A játék indítása"
+
+msgid "djl va tenter de trouver la librairie"
+msgstr "DJL most megpróbálkozik a hiányzó programkönyvtár letöltésével"
+
+msgid "La librairie n'a pas ete trouvee"
+msgstr "Programkönyvtár (library) nincs meg"
+
+msgid "Merci de rapporter le probleme au developpeur."
+msgstr "Kérem jelezze a fejlesztőnek"
+
+msgid "Installer automatiquement les dependances manquantes."
+msgstr "Bekapcsolja a függőségek letöltését ha szükséges"
+
+msgid "Gestionnaire des librairies"
+msgstr "Programkönyvtár (library) kezelő"
+

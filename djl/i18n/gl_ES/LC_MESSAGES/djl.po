@@ -1,0 +1,1185 @@
+# translation of djl.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Traducido ao galego por Adrián Chaves Fernandez (adriyetichaves@gmail.com)
+# Colaborador do Proxecto Trasno (www.trasno.net)
+#
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: djl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-22 17:43+0100\n"
+"PO-Revision-Date: 2009-03-14 11:50+0100\n"
+"Last-Translator: Adrian Chaves Fernandez <adriyetichaves@gmail.com>\n"
+"Language-Team: Galician <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ajout_jeu.py:131
+msgid "Ajouter un raccourci"
+msgstr "Engadir un atallo"
+
+#: ajout_jeu.py:132
+#: ajout_jeu.py:137
+#: configuration.py:441
+#: configuration.py:442
+#: creer_def.py:358
+#: creer_def.py:359
+msgid "Parcourir..."
+msgstr "Procurar..."
+
+#: ajout_jeu.py:133
+#: creer_def.py:157
+#: creer_def.py:347
+msgid "Nom du jeu:"
+msgstr "Nome do xogo:"
+
+#: ajout_jeu.py:135
+msgid "Icone:"
+msgstr "Icona:"
+
+#: ajout_jeu.py:136
+msgid "Commande du jeu:"
+msgstr "Orde do xogo:"
+
+#: ajout_jeu.py:138
+msgid "Sauvegarder et fermer"
+msgstr "Gardar e pechar"
+
+#: configuration.py:22
+#: configuration.py:181
+msgid "Supprimer raccourci de djl du menu KDE/Gnome"
+msgstr "Eliminar o atallo do djl do menú de KDE/GNOME"
+
+#: configuration.py:24
+#: configuration.py:148
+msgid "Ajouter un raccourci de djl dans le menu KDE/Gnome"
+msgstr "Engadir un atallo do djl ao menú de KDE/GNOME"
+
+#: configuration.py:149
+msgid "Raccourcis supprime"
+msgstr "Eliminouse o atallo"
+
+#: configuration.py:159
+msgid "Name=djl"
+msgstr "Name=djl"
+
+#: configuration.py:161
+msgid "GenericName[fr]=Depot jeux linux"
+msgstr "GenericName[fr]=Depot jeux linux"
+
+#: configuration.py:163
+msgid "GenericName=Depot jeux linux"
+msgstr "GenericName=Repositorio de xogos para GNU/Linux"
+
+#: configuration.py:165
+msgid "Comment[fr]=Un gestionnaire de jeux videos pour Linux"
+msgstr "Comment[fr]=Un gestionnaire de jeux videos pour Linux"
+
+#: configuration.py:167
+msgid "Comment=Un gestionnaire de jeux videos pour Linux"
+msgstr "Comment=Un xestor de xogos para GNU/Linux"
+
+#: configuration.py:180
+msgid "Raccourci cree"
+msgstr "Creouse o atallo"
+
+#: configuration.py:207
+msgid "Ferme"
+msgstr "Pechar"
+
+#: configuration.py:239
+msgid "Attention, soit le repertoire du jeu est deja existant, soit vous n'avez pas les droits suffisants pour ecrire dessus"
+msgstr "Atención, ou o directorio do xogo xa existe, ou non ten permisos para escribir nel"
+
+#: configuration.py:246
+msgid "Attention, le repertoire de jeux n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Atención, non se puido crear o directorio do xogo. Non tes os permisos necesarios ou o ficheiro xa existe"
+
+#: configuration.py:253
+msgid "Attention, le repertoire d'etat n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Atención, non se puido crear o directorio de estado. Non tes permisos de escritura nel ou o ficheiro xa existe"
+
+#: configuration.py:260
+msgid "Erreur, le repertoire de definition n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Houbo un problema, non se puido crear o directorio das definicións. Non tes os permisos de escritura necesarios ou o ficheiro xa existe."
+
+#: configuration.py:267
+msgid "Erreur, le repertoire des raccourcis n'a put etre cree, vous n'avez peut etre pas les droits necessaires ou le fichier est existant"
+msgstr "Houbo un problema, non se puido crear o directorio dos atallos. Non tes os permisos de escritura necesarios ou o ficheiro xa existe."
+
+#: configuration.py:314
+msgid "Le fichier de configuration n'existe pas, il sera cree"
+msgstr "Vaise crear o ficheiro de configuración, posto que aínda non existe."
+
+#: configuration.py:336
+msgid "Fichier de configuration ecrit:"
+msgstr "Escribiuse no ficheiro de configuración:"
+
+#: configuration.py:429
+#: fenetre_principale.py:891
+msgid "Configuration"
+msgstr "Configuración"
+
+#: configuration.py:433
+msgid ""
+"Ceci est le premier demarrage de djl, vous pouvez le configurer maintenant \n"
+" ou passer cette etape pour vous en tenir a la configuration par defaut."
+msgstr ""
+"Esta é a primeira vez que se inicia o djl. Podes configuralo agora mesmo\n"
+"ou deixalo para máis adiante e utilizar a configuración por defecto."
+
+#: configuration.py:436
+msgid ""
+"Ceci est le menu de configuration de djl. \n"
+"Certaines actions necessiteront le redemarrage du logiciel."
+msgstr ""
+"Este é o menú de configuración do djl.\n"
+"Algunhas accións requeriran reiniciar a aplicación."
+
+#: configuration.py:439
+msgid "Repertoire d'installation des jeux:"
+msgstr "Directorio de instalación dos xogos:"
+
+#: configuration.py:440
+msgid "Navigateur internet:"
+msgstr "Navegador web:"
+
+#: configuration.py:443
+msgid "Supprimer les archives des jeux apres installation."
+msgstr "Borrar os arquivos dos xogos despois da súa instalación."
+
+#: configuration.py:444
+msgid "Lancer les jeux apres installation."
+msgstr "Iniciar os xogos tras a súa instalación."
+
+#: configuration.py:445
+msgid "Iconifier djl dans la barre a miniature. (necessite redemarrage)"
+msgstr "Poñer unha icona do djl na área de notificación (require reiniciar)."
+
+#: configuration.py:446
+msgid "Verifier la mise a jour de djl au demarrage."
+msgstr "Comprobar se hai actualizacións para o djl ao inicialo."
+
+#: configuration.py:447
+msgid "Verifier la mise a jour du depot a son lancement."
+msgstr "Comprobar se hai actualizacións do repositorio ao inicialo."
+
+#: configuration.py:448
+msgid "Afficher la sortie des jeux a leur lancement."
+msgstr "Amosar a saída de consola dos xogos ao inicialos."
+
+#: configuration.py:449
+msgid ""
+"Lancer les jeux dans un serveur graphique separe\n"
+"(Permet d'eviter les problemes lies a l'utilisation de Compiz, Beryl ou autre)."
+msgstr ""
+"Iniciar os xogos nun servidor gráfico por separado\n"
+"(permite evitar os problemas derivados da utilización de Compiz, Beryl, etc.)."
+
+#: configuration.py:450
+msgid "Valider"
+msgstr "Aceptar"
+
+#: configuration.py:451
+#: depot.py:198
+#: fenetre_principale.py:698
+#: fenetre_principale.py:1093
+msgid "Fermer"
+msgstr "Pechar"
+
+#: creer_def.py:36
+msgid "Null"
+msgstr "Null"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de tir"
+msgstr "Tiros"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Strategie"
+msgstr "Estratexia"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Course"
+msgstr "Carreiras"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de role"
+msgstr "Rol"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Sport"
+msgstr "Deportes"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Arcade"
+msgstr "Arcade"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Action/Aventure"
+msgstr "Acción/Aventuras"
+
+#: creer_def.py:36
+#: depot.py:944
+msgid "Jeu de plateau"
+msgstr "Xogos de taboleiro"
+
+#: creer_def.py:57
+msgid "Fichiers sauvegardes dans:"
+msgstr "Os ficheiros gardáronse en:"
+
+#: creer_def.py:62
+msgid "Le repertoire du jeu existe deja, un nouveau sera cree"
+msgstr "O directorio dos xogos xa existe, vaise crear un novo"
+
+#: creer_def.py:180
+msgid "Envoye au serveur ftp"
+msgstr "Enviado ao servidor FTP"
+
+#: creer_def.py:181
+msgid "Envoi des fichiers"
+msgstr "Enviando os ficheiros"
+
+#: creer_def.py:182
+msgid "Les fichiers on ete envoyes, merci."
+msgstr "Enviáronse os ficheiros, grazas."
+
+#: creer_def.py:346
+msgid "Createur de fichiers de definition"
+msgstr "Creador de ficheiros de definición"
+
+#: creer_def.py:348
+msgid "Version:"
+msgstr "Versión:"
+
+#: creer_def.py:349
+msgid "Nom de l'icone:"
+msgstr "Nome da icona:"
+
+#: creer_def.py:350
+msgid "Nom de l'image:"
+msgstr "Nome da imaxe:"
+
+#: creer_def.py:351
+#: depot.py:193
+msgid "Description:"
+msgstr "Descrición:"
+
+#: creer_def.py:354
+msgid "Lien de telechargement:"
+msgstr "Ligazón de descarga:"
+
+#: creer_def.py:355
+msgid "Commande pour lancer le jeu:"
+msgstr "Orde para iniciar o xogo:"
+
+#: creer_def.py:356
+msgid "Sauvegarder"
+msgstr "Gardar"
+
+#: creer_def.py:357
+msgid "Sauvegarder et envoyer au developpeur"
+msgstr "Gardar e enviar ao desenvolvedor"
+
+#: creer_def.py:361
+msgid "Ce qui suit est facultatif"
+msgstr "O seguinte é opcional"
+
+#: creer_def.py:362
+#: depot.py:201
+msgid "Genre"
+msgstr "Xénero"
+
+#: creer_def.py:363
+msgid "Taille de l'archive (Mo):"
+msgstr "Tamaño do arquivo (MB):"
+
+#: creer_def.py:364
+#: depot.py:205
+msgid "Licence"
+msgstr "Licenza"
+
+#: creer_def.py:365
+msgid "Site officiel (ou autre lien):"
+msgstr "Sitio oficial (ou outra ligazón):"
+
+#: depot.py:185
+msgid "Depot"
+msgstr "Repositorio"
+
+#: depot.py:188
+#: depot.py:560
+msgid "Jouer"
+msgstr "Xogar"
+
+#: depot.py:189
+msgid "Supprimer"
+msgstr "Borrar"
+
+#: depot.py:190
+msgid "Mettre a jour"
+msgstr "Actualizar"
+
+#: depot.py:191
+msgid "Choisissez un jeu pour avoir une description."
+msgstr "Elixe un xogo para obter unha descrición."
+
+#: depot.py:192
+msgid "Liste des jeux disponible:"
+msgstr "Lista dos xogos dispoñibles:"
+
+#: depot.py:194
+#: fenetre_principale.py:886
+msgid "Menu"
+msgstr "Menú"
+
+#: depot.py:196
+msgid "Creer une nouvelle entree"
+msgstr "Crear unha entrada nova"
+
+#: depot.py:197
+#: depot.py:856
+msgid "Mise a jour du depot"
+msgstr "Actualizar o repositorio"
+
+#: depot.py:199
+#: fenetre_principale.py:894
+msgid "Quitter"
+msgstr "Saír"
+
+#: depot.py:202
+msgid "Taille"
+msgstr "Tamaño"
+
+#: depot.py:203
+msgid "Plate-forme: x86"
+msgstr "Plataforma: x86"
+
+#: depot.py:204
+msgid "Trier les jeux:"
+msgstr "Organizar os xogos:"
+
+#: depot.py:206
+msgid "Plus d'informations..."
+msgstr "Máis información..."
+
+#: depot.py:346
+msgid "Avertissement: le jeu "
+msgstr "Advertencia: o xogo "
+
+#: depot.py:346
+msgid " n'a pas de categorie"
+msgstr " non está en ningunha categoría"
+
+#: depot.py:383
+msgid "Liste des jeux disponible: ("
+msgstr "Lista de xogos dispoñibles: ("
+
+#: depot.py:410
+#: depot.py:412
+msgid "Genre: Non defini"
+msgstr "Xénero: sen especificar"
+
+#: depot.py:419
+msgid "Taille: ~"
+msgstr "Tamaño: ~"
+
+#: depot.py:421
+msgid "Taille: Non definie"
+msgstr "Tamaño: sen especificar"
+
+#: depot.py:429
+msgid "Licence: Non definie"
+msgstr "Licenza: sen especificar"
+
+#: depot.py:456
+msgid "Pas de description disponible."
+msgstr "Non se dispón dunha descrición."
+
+#: depot.py:503
+msgid "Pas d'icone disponible"
+msgstr "Non se dispón dunha icona"
+
+#: depot.py:522
+msgid "Pas d'image disponible"
+msgstr "Non se dispón dunha imaxe"
+
+#: depot.py:549
+#: depot.py:570
+#: depot.py:579
+msgid "Installer"
+msgstr "Instalar"
+
+#: depot.py:552
+#: depot.py:576
+msgid "Etat: Non installe"
+msgstr "Estado: sen instalar"
+
+#: depot.py:558
+msgid "Etat: Installe"
+msgstr "Estado: instalado"
+
+#: depot.py:567
+msgid "Etat: Telecharge"
+msgstr "Estado: descargado"
+
+#: depot.py:649
+#: telecharge_installe.py:328
+msgid "ecrit"
+msgstr "foi escrito"
+
+#: depot.py:686
+msgid "Impossible de trouver l'adresse de telechargement"
+msgstr "Non foi posible atopar a ligazón da descarga"
+
+#: depot.py:710
+msgid "Attention, le jeu n'a pas ete supprime correctement"
+msgstr "Atención, o xogo non se borrou correctamente"
+
+#: depot.py:860
+msgid "Les mises a jours ou nouvelles entrees suivantes ont ete trouves:"
+msgstr "Velaquí as actualizacións e novas entradas:"
+
+#: depot.py:882
+msgid "Le depot est a jour."
+msgstr "O repositorio está ao día."
+
+#: depot.py:944
+msgid "Tous"
+msgstr "Todos"
+
+#: depot.py:1047
+#: fenetre_principale.py:218
+#: fenetre_principale.py:285
+#: fenetre_principale.py:892
+#: fenetre_principale.py:971
+msgid "Mise a jour de djl"
+msgstr "Actualizar o djl"
+
+#: depot.py:1048
+#: fenetre_principale.py:972
+msgid "Ok"
+msgstr "Aceptar"
+
+#: depot.py:1049
+#: fenetre_principale.py:973
+msgid "Mise a jour en cours..."
+msgstr "Actualizando..."
+
+#: depot.py:1094
+msgid "> Probleme lors du telechargement ?"
+msgstr "> Problema á hora da descarga?"
+
+#: djl.py:25
+#: telecharge_installe.py:28
+msgid "Erreur lors de l'import des librairies, vous devez installer le paquet python-qt4"
+msgstr "Houbo un problema á hora de importar as bibliotecas, tes que instalar o paquete python-qt4"
+
+#: djl.py:55
+msgid "Le fichier:"
+msgstr "O ficheiro:"
+
+#: djl.py:55
+msgid "est manquant, il sera telecharge"
+msgstr "non está presente, e vai descargarse"
+
+#: djl.py:77
+msgid "Ceci est le premier lancement de djl"
+msgstr "Esta é a primeira vez que se inicia o djl"
+
+#: djl.py:82
+msgid "Probleme lors de la creation du dossier ~/.djl (probablement deja existant)"
+msgstr "Houbo un problema á hora de crear o directorio ~/.djl (probablemente xa exista)"
+
+#: djl.py:105
+#: fenetre_principale.py:1116
+msgid " le "
+msgstr " o "
+
+#: djl.py:107
+msgid "djl lance \n"
+msgstr "inicio do djl \n"
+
+#: djl.py:108
+msgid ">>> id du processus:"
+msgstr ">>> ID dos procesos: "
+
+#: fenetre_principale.py:77
+#: fenetre_principale.py:78
+msgid "Impossible d'ecrire dans le repertoire de djl, il ne sera donc pas mis a jour."
+msgstr "Non foi posible escribir no directorio do djl, e non se actualizará."
+
+#: fenetre_principale.py:179
+msgid "Cliquez pour afficher le menu principal"
+msgstr "Preme aquí para amosar o menú principal"
+
+#: fenetre_principale.py:197
+msgid "Afficher/Masquer fenetre principale"
+msgstr "Amosar/Agochar a fiestra principal"
+
+#: fenetre_principale.py:219
+msgid ""
+"Vous n'avez pas les doits suffisants pour ecrire dans le repertoire de djl. \n"
+" Il ne sera donc pas mis a jour."
+msgstr ""
+"Non tes permisos abondo para escribir no directorio do djl.\n"
+" Non se vai actualizar."
+
+#: fenetre_principale.py:254
+msgid "Mise a jour de djl: "
+msgstr "Actualización do djl: "
+
+#: fenetre_principale.py:290
+msgid "Liste des nouveautes: "
+msgstr "Lista de cambios: "
+
+#: fenetre_principale.py:294
+msgid "Une mise a jour est disponible: "
+msgstr "Hai unha actualización dispoñible: "
+
+#: fenetre_principale.py:303
+msgid "djl est a jour: "
+msgstr "Actualizouse o djl: "
+
+#: fenetre_principale.py:314
+msgid "Depot ouvert."
+msgstr "Abriuse o repositorio."
+
+#: fenetre_principale.py:321
+msgid "Quitte"
+msgstr "Saír"
+
+#: fenetre_principale.py:322
+msgid "djl quitte."
+msgstr "Saír do djl."
+
+#: fenetre_principale.py:428
+#: fenetre_principale.py:889
+msgid "Importer un raccourci"
+msgstr "Importar un atallo"
+
+#: fenetre_principale.py:428
+msgid "Fichiers .desktop (*.desktop)"
+msgstr "Ficheiros .desktop (*.desktop)"
+
+#: fenetre_principale.py:445
+#: fenetre_principale.py:446
+msgid " supprime"
+msgstr " borrado"
+
+#: fenetre_principale.py:466
+#: telecharge_installe.py:464
+msgid " lance !"
+msgstr " iniciado!"
+
+#: fenetre_principale.py:559
+msgid "icone introuvable:"
+msgstr "non se atopou a icona:"
+
+#: fenetre_principale.py:571
+#: fenetre_principale.py:591
+msgid "L'icone du raccourcis"
+msgstr "A icona do atallo"
+
+#: fenetre_principale.py:571
+#: fenetre_principale.py:591
+msgid "n'a pas ete trouve, elle a ete remplace par l'icone de djl."
+msgstr "non se atopou, e será substituída pola icona do djl."
+
+#: fenetre_principale.py:672
+msgid "Informations systeme..."
+msgstr "Información do sistema..."
+
+#: fenetre_principale.py:673
+msgid "Informations systeme consultes"
+msgstr "Consultouse a información do sistema"
+
+#: fenetre_principale.py:674
+#: fenetre_principale.py:897
+msgid "Informations systeme"
+msgstr "Información do sistema"
+
+#: fenetre_principale.py:676
+msgid "Systeme d'exploitation: "
+msgstr "Sistema operativo: "
+
+#: fenetre_principale.py:678
+msgid "Nom de la machine: "
+msgstr "Nome da computadora: "
+
+#: fenetre_principale.py:680
+msgid "Architecture: "
+msgstr "Arquitectura: "
+
+#: fenetre_principale.py:682
+msgid "Environnement:  "
+msgstr "Ambiente de escritorio: "
+
+#: fenetre_principale.py:684
+msgid "Processeur: "
+msgstr "Procesador: "
+
+#: fenetre_principale.py:686
+msgid "Fabricant de la carte graphique: "
+msgstr "Fabricante da tarxeta gráfica: "
+
+#: fenetre_principale.py:688
+msgid "Nom de la carte graphique: "
+msgstr "Tarxeta gráfica: "
+
+#: fenetre_principale.py:690
+msgid "Version du pilote graphique: "
+msgstr "Versión do piloto gráfico: "
+
+#: fenetre_principale.py:694
+msgid "Memoire vive: "
+msgstr "Memoria RAM: "
+
+#: fenetre_principale.py:696
+msgid "Carte son : "
+msgstr "Tarxeta de son: "
+
+#: fenetre_principale.py:734
+#: fenetre_principale.py:902
+msgid "A propos..."
+msgstr "Acerca de..."
+
+#: fenetre_principale.py:735
+msgid "A propos de djl"
+msgstr "Acerca do djl"
+
+#: fenetre_principale.py:736
+msgid "Depot jeux linux "
+msgstr "Depot jeux linux "
+
+#: fenetre_principale.py:736
+msgid " par Diablo150 sous licence GPL 3."
+msgstr " é propiedade de Diablo150 e atópase baixo a licenza GPL 3."
+
+#: fenetre_principale.py:737
+msgid "Merci aux principaux contributeurs:"
+msgstr "Os meus agradecementos aos principais contribuidores:"
+
+#: fenetre_principale.py:738
+msgid "Mes deux freres."
+msgstr "Meus dous irmáns."
+
+#: fenetre_principale.py:739
+msgid "Lululaglue, Jerhum, Julroy67 et sebastienb de jeuxlinux.fr."
+msgstr "Lululaglue, Jerhum, Julroy67 e sebastienb, de JeuxLinux.fr."
+
+#: fenetre_principale.py:740
+msgid "Ainsi qu'a:"
+msgstr "Así como a:"
+
+#: fenetre_principale.py:887
+msgid "Installer/Supprimer un jeu avec le depot"
+msgstr "Intalar/Eliminar un xogo desde o repositorio"
+
+#: fenetre_principale.py:888
+msgid "Ajouter un raccourci vers un jeu installe sur le systeme"
+msgstr "Engadir un atallo a un xogo que estea xa instalado no sistema"
+
+#: fenetre_principale.py:890
+msgid "Supprimer le raccourci"
+msgstr "Borrar o atallo"
+
+#: fenetre_principale.py:893
+msgid "Redemarrer djl"
+msgstr "Reiniciar o djl"
+
+#: fenetre_principale.py:896
+msgid "Informations"
+msgstr "Información"
+
+#: fenetre_principale.py:898
+msgid "Consulter le journal des modifications de djl"
+msgstr "Consultar a lista de cambios do djl"
+
+#: fenetre_principale.py:899
+msgid "Consulter l'historique"
+msgstr "Consultar o historial"
+
+#: fenetre_principale.py:900
+msgid "Consulter la sortie des jeux"
+msgstr "Consultar a saída da consola dos xogos"
+
+#: fenetre_principale.py:901
+msgid "Rapporter une anomalie ou une suggestion..."
+msgstr "Informar dun erro ou dunha idea..."
+
+#: fenetre_principale.py:981
+msgid "Mise a jours en cours..."
+msgstr "Actualizando..."
+
+#: fenetre_principale.py:996
+msgid "Nombre de fichiers:"
+msgstr "Número de ficheiros:"
+
+#: fenetre_principale.py:1013
+msgid "La mise a jour a echouee"
+msgstr "Fallou a actualización"
+
+#: fenetre_principale.py:1057
+msgid "Le fichier n'existe pas"
+msgstr "O ficheiro non existe"
+
+#: fenetre_principale.py:1092
+msgid "Fichier: "
+msgstr "Ficheiro: "
+
+#: fenetre_principale.py:1102
+msgid "djl redemarre."
+msgstr "Reiniciouse o djl."
+
+#: fenetre_principale.py:1103
+msgid "djl redemarre"
+msgstr "Reiniciouse o djl"
+
+#: telecharge_installe.py:90
+msgid "Telechargement"
+msgstr "Descarga"
+
+#: telecharge_installe.py:91
+msgid "Annuler"
+msgstr "Cancelar"
+
+#: telecharge_installe.py:97
+msgid "Telechargement en cours, veuillez patienter"
+msgstr "Descargando..."
+
+#: telecharge_installe.py:97
+msgid "Mo"
+msgstr "MB"
+
+#: telecharge_installe.py:101
+msgid "Telechargement termine"
+msgstr "Completouse a descarga"
+
+#: telecharge_installe.py:109
+msgid "Decompression de l'archive en cours..."
+msgstr "Descomprimindo o arquivo..."
+
+#: telecharge_installe.py:129
+#: telecharge_installe.py:160
+msgid "Telechargement annule"
+msgstr "Cancelouse a descarga"
+
+#: telecharge_installe.py:195
+#: telecharge_installe.py:212
+msgid "Le dossier de l'archive n'a pas ete cree"
+msgstr "Non se creou o directorio do arquivo"
+
+#: telecharge_installe.py:306
+msgid "Dossier existant"
+msgstr "Xa existe o directorio"
+
+#: telecharge_installe.py:331
+msgid "Le fichier de version n'a put etre ecrit"
+msgstr "Non se puido crear o ficheiro da versión"
+
+#: telecharge_installe.py:341
+msgid "Le dossier du jeu n'a pas ete cree (Loki)"
+msgstr "Non se puido crear o directorio do xogo"
+
+#: telecharge_installe.py:359
+msgid "/bin n'existe pas (ou plus)"
+msgstr "/bin non existe (ou máis)"
+
+#: telecharge_installe.py:365
+msgid "Attention, un fichier binaire n'a put etre copie, ceci est inherent a la non uniformitee des archives, ca n'est probablement pas trop grave ("
+msgstr "Atención, non se puido copiar un ficheiro binario. Isto ten que ver coa non uniformidade dos arquivos, que probablemente non ten maior importancia ("
+
+#: telecharge_installe.py:370
+msgid "Le binaire du jeu n'a pas ete rendu executable suite a la levee d'une exception"
+msgstr "O binario do xogo non se fixo executable debido á execución dunha exepción"
+
+#: telecharge_installe.py:374
+msgid "Les binaires ont ete ignores"
+msgstr "Ignoráronse os ficheiros binarios"
+
+#: telecharge_installe.py:477
+msgid "dossier 'src' ignore"
+msgstr "ignorouse o directorio \"src\""
+
+#: telecharge_installe.py:482
+msgid "fichier '.directory ignore"
+msgstr "ignorouse o ficheiro \".directory\""
+
+#: telecharge_installe.py:546
+msgid "Le fichier n'a pas ete rendu executable"
+msgstr "O ficheiro binario non se puido establecer coma executable"
+
+#: telecharge_installe.py:580
+msgid "Serveur X plante"
+msgstr "Fallou o servidor X"
+
+#: telecharge_installe.py:611
+msgid "Le serveux X a plante, voici le message d'erreur.\n"
+msgstr "Fallou o servidor X, velaquí a mensaxe do erro.\n"
+
+#: telecharge_installe.py:614
+msgid ""
+"\n"
+"Vous n'avez pas les droits necessaires pour lancer un second serveur X. \n"
+"Sur les systemes bases sur Debian, vous pouvez regler le probleme en lancant:\n"
+" 'dpkg-reconfigure x11-common' \n"
+" Et permettre a tout le monde de lancer X11."
+msgstr ""
+"\n"
+"Non tes os permisos precisos para iniciar un novo servidor X.\n"
+"Nos sistemas baseados en Debian, poder resolver o problema facendo isto:\n"
+"$ dpkg-reconfigure x11-common\n"
+"De modo que lle permitar a todos os usuarios iniciar o X11."
+
+#: telecharge_installe.py:619
+msgid "Le serveux X a plante"
+msgstr "Fallou o servidor X"
+
+#: telecharge_installe.py:632
+msgid "Erreur lors du lancement du jeu"
+msgstr "Erro ao iniciar o xogo"
+
+#: telecharge_installe.py:638
+msgid "Une erreur s'est produite avec "
+msgstr "Produciuse un erro con "
+
+#: telecharge_installe.py:638
+msgid ""
+". \n"
+"Voici le message d'erreur: \n"
+msgstr ""
+". \n"
+"Velaquí a cadea do erro: \n"
+
+#: telecharge_installe.py:640
+msgid "Le jeu "
+msgstr "O xogo "
+
+#: telecharge_installe.py:640
+msgid " n'a put etre lance correctement. Merci de lire les eventuels messages d'erreur dans le terminal et rapporter le bogue au developpeur."
+msgstr " non se puido iniciar correctamente. Fai o favor de ler as posibles mensaxes de erro da consola e informar delas aos desenvolvedores."
+
+#: telecharge_installe.py:645
+msgid ""
+"\n"
+" Wine n'a put lancer le jeu."
+msgstr ""
+"\n"
+" Wine non puido iniciar o xogo."
+
+#: telecharge_installe.py:650
+#: telecharge_installe.py:654
+msgid ""
+"\n"
+" La carte son est probablement occupee par un autre processus."
+msgstr ""
+"\n"
+" Outro proceso podería estar a utilizar a tarxeta de son."
+
+#: telecharge_installe.py:674
+msgid ""
+"\n"
+" Solution possible, installer la librairie python '"
+msgstr ""
+"\n"
+" Unha posible solución sería isntalar a biblioteca python '"
+
+#: telecharge_installe.py:700
+msgid "introuvable"
+msgstr "imposible atopalo"
+
+#: telecharge_installe.py:702
+msgid ""
+"\n"
+" Solution possible, installer la librairie "
+msgstr ""
+"\n"
+" Unha posible solución sería isntalar a biblioteca "
+
+#: telecharge_installe.py:702
+msgid ", version "
+msgstr ", versión "
+
+msgid "Non defini"
+msgstr "sen especificar"
+
+msgid "Langue"
+msgstr "Lingua"
+
+msgid "(Localisation en Russe)"
+msgstr "(tradución rusa)"
+
+msgid "Passer a l'interface simple"
+msgstr "Cambiar á interface simple"
+
+msgid "Passer a l'interface etendue"
+msgstr "Cambiar á interface extendida"
+
+msgid "Actualites"
+msgstr "Novas"
+
+msgid "Jeux"
+msgstr "Xogos"
+
+msgid "IRC"
+msgstr "Conversa"
+
+msgid "Connecte !"
+msgstr "Conectado!"
+
+msgid "En cours de connexion..."
+msgstr "Conectando..."
+
+msgid "En cours de telechargement..."
+msgstr "Descargando..."
+
+###1.1.2
+msgid "Pseudo:"
+msgstr "Alcume: "
+
+msgid "Couleur de fond:"
+msgstr "Cor de fondo:"
+
+msgid "Blanc"
+msgstr "Branco"
+
+msgid "Noir"
+msgstr "Negro"
+
+msgid "Se connecter au demarrage"
+msgstr "Conectarse no inicio"
+
+msgid "Connection"
+msgstr "Conectar"
+
+msgid "Deconnecte"
+msgstr "Desconectado"
+
+msgid "Deconnection"
+msgstr "Desconectar"
+
+###
+#Version 1.1.6:
+msgid "Le logiciel Wine n'a pas ete trouve, veuillez l'installer pour continuer."
+msgstr "Non se atopou a aplicación Wine. Instálea para continuar."
+
+msgid "Vous devez definir le chemin vers un fichier .exe ainsi que le nom du jeu."
+msgstr "Tes que indicar a ruta du ficheiro .exe así coma o nome do xogo."
+
+msgid ""
+"Attention: La stabilitee et les performances du jeu ne sont pas\n"
+"assures, cela depend totalement des capacites du logiciel Wine."
+msgstr ""
+"Atención: non se aseguran nin a estabilidade nin o correcto funcionamento\n"
+" dos xogos, pois dependen completamente das capacidades de Wine."
+
+msgid "Chemin vers l'executable:"
+msgstr "Ruta do .exe:"
+
+msgid "Ajouter un jeu Windows avec Wine"
+msgstr "Engadir un xogo de Windows con Wine"
+
+#1.1.10:
+msgid "Arguments"
+msgstr "Preferencias"
+
+msgid "Options de lancements:"
+msgstr "Preferencias de inicio:"
+
+msgid "Arguments de lancement pour"
+msgstr "Argumentos de inicio para"
+
+msgid "Arguments de lancement"
+msgstr "Argumentos de inicio"
+
+#1.1.14
+# msgid "Modifier le depot"
+# msgstr "Amend the repository"
+#1.2.0
+msgid "Visiter le site"
+msgstr "Visitar o sitio"
+
+msgid "Confirmation"
+msgstr "Confirmar"
+
+msgid "Voulez vous vraiment supprimer le raccourci"
+msgstr "Estás seguro de querer borrar o atallo"
+
+msgid "Voulez vous vraiment supprimer le jeu"
+msgstr "Estás segudo de querer eliminar"
+
+msgid "Site internet"
+msgstr "Sitio web"
+
+msgid "Rechercher des informations sur internet"
+msgstr "Burcar información na rede"
+
+msgid "Chercher"
+msgstr "Buscar"
+
+msgid "N'afficher que les jeux"
+msgstr "Amosar só os xogos"
+
+msgid "Ajouter"
+msgstr "Engadir"
+
+msgid "Utilisateur expulse"
+msgstr "Expulsouse ao usuario"
+
+msgid "Modifier le raccourci"
+msgstr "Modificar o atallo"
+
+msgid "Repertoire"
+msgstr "Directorio"
+
+msgid "Utilisateur connecte"
+msgstr "Conectouse o usuario"
+
+msgid "Utilisateur deconnecte"
+msgstr "Desconectouse o usuario"
+
+msgid "Onglet par defaut"
+msgstr "Lingüeta por defecto"
+
+msgid "Impossible d'ecrire dans le repertoire de djl, la mise a jour sera installee dans ~/.djl/src"
+msgstr "Non se puido escribir no directorio do djl. A actualización instalarase en ~/.djl/src"
+
+msgid "lancee"
+msgstr "iniciar"
+
+msgid "Controle: "
+msgstr "Controis: "
+
+msgid ", djl va tenter de la trouver, sinon elle sera remplacee."
+msgstr ", o djl vai intentar buscalo, ou senón substituirase."
+
+msgid "Attention"
+msgstr "Atención"
+
+msgid "djl est deja lance"
+msgstr "O djl xa está a funcionar"
+
+msgid "Il n'est pas recommande d'utiliser djl en tant qu'utilisateur Root."
+msgstr "Non se recomenda o uso do djl coma usuario root."
+
+#djl 1.2.1
+msgid "Nom"
+msgstr "Nome"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "raccourci"
+msgstr "atallo"
+
+msgid "Dernier lancement"
+msgstr "Último inicio"
+
+msgid "Date de creation"
+msgstr "Data da creación"
+
+msgid "Jeu Windows utilisant Wine"
+msgstr "Xogo de Windows con Wine"
+
+msgid "Commande systeme"
+msgstr "Sistema de comandos"
+
+msgid "Jeu installe depuis le depot"
+msgstr "Xogo instalado desde o repositorio"
+
+msgid "Repertoire d'installation"
+msgstr "Directorio da instalación"
+
+msgid "Date d'installation"
+msgstr "Data da instalación"
+
+msgid "Espace utilise"
+msgstr "Espazo utilizado"
+
+msgid "(Non connecte)"
+msgstr "(fóra e liña)"
+
+#djl 1.2.1
+msgid "Traducteurs:"
+msgstr "Tradutores:"
+
+#djl 1.2.4
+msgid "Pour plus d'informations, vous pouvez consulter la sortie d'erreur du jeu dans le menu 'Information/Consulter' la sortie des jeux."
+msgstr "Para máis información, podes consultar a saída do erro do xogo no menú \"Información/Consultar a saída de consola do xogo\"."
+
+msgid "C'est probablement une incompatibilite entre librairies partages."
+msgstr "Debe de haber unha incompatibilidade entre as bibliotecas compartidas."
+
+#djl 1.2.5
+msgid "Taille des polices:"
+msgstr "Tamaño da letra:"
+
+msgid "Canaux a utiliser (sur irc.freenode.net), separes par des espaces"
+msgstr "Canler a utilizar (en irc.freenode.net), separadas por espazos"
+
+msgid "a"
+msgstr "en"
+
+msgid "Temps restant:"
+msgstr "Tempo restante:"
+
+msgid "Non trouve"
+msgstr "Non se atopou"
+
+msgid "Installer une librairie manquante"
+msgstr "Instalar unha biblioteca necesaria"
+
+msgid "Gestionnaire des modules"
+msgstr "Xestor dos complementos"
+
+#1.2.8
+msgid "Verifier les dependances"
+msgstr "Comprobar as dependencias"
+
+msgid "Dependances non satisfaites"
+msgstr "Faltan dependencias"
+
+msgid "Toutes les dependances semblent satisfaites"
+msgstr "Están todas as dependencias"
+
+msgid "Erreur"
+msgstr "Erro"
+
+msgid "Ko/s"
+msgstr "Kb/s"
+
+msgid "Modules"
+msgstr "Plugins"
+
+msgid "Le jeu est en cours de lancement"
+msgstr "Iniciando o xogo..."
+
+msgid "djl va tenter de trouver la librairie"
+msgstr "djl vai intentar descargar a biblioteca"
+
+msgid "La librairie n'a pas ete trouvee"
+msgstr "Non se atopou a biblioteca"
+
+msgid "Merci de rapporter le probleme au developpeur."
+msgstr "Agradécese que informes do problema ao desenvolvedor."
+
+msgid "Installer automatiquement les dependances manquantes."
+msgstr "Instalar automaticamente as dependencias precisas."
+
+msgid "Gestionnaire des librairies"
+msgstr "Xestor das bibliotecas"
+
+

@@ -1,0 +1,367 @@
+-> 1.2.20 (18/10/2009):
+- Plusieurs corrections de bogue dans le mode hors ligne.
+- Si le serveur ne répond plus ou mal, djl ne plantera plus.
+- Diverses correction de bogues.
+
+-> 1.2.19 (13/09/2009):
+- Utilisation du moteur de rendu QtWebKit pour l'affichage des descriptions des jeux, elles peuvent maintenant être intératives.
+- Ajout du raccourci clavier Ctrl+Q pour quitter le logiciel.
+- De nombreuse corrections de bogue.
+
+-> 1.2.18 (13/09/2009):
+- Amélioration du gestionnaire d'erreurs.
+- djlfox est maintenant lancé dans un thread.
+- Remodelage du dépôt, il devrait maintenant être plus lisible et gâcher moins de place.
+- Le dépôt est maintenant accessible en portugais.
+- Il est maintenant possible de trier les jeux par licence.
+- Correction d'un plantage à cause du mini navigateur internet.
+- Correction d'un bogue, les jeux ne se relançaient pas correctement après l'installation automatique d'une librairie.
+- Le dépôt est maintenant complètement rechargé après un changement de langue "à chaud".
+- Gestion plus intelligente des téléchargements, dans certains cas le dépôt n'a plus à fournir de lien direct.
+- Quelque corrections de bogues.
+
+-> 1.2.17 (17/08/2009):
+- Bogue corrigé dans le pré-téléchargement des images.
+- Bogue corrigé au premier lancement de djl.
+- Bogue corrigé, le menu contextuel de la liste de jeu principale ne s'affichait plus.
+
+-> 1.2.16 (16/08/2009):
+- djl capture maintenant sa sortie d'erreur et peut l'afficher dans une boite de dialogue en cas de plantage.
+- Correction d'un bogue d'affichage dans la liste des téléchargements.
+- Correction d'un bogue, djl téléchargeait les librairies dans le mauvais repertoire.
+- Ajout de la traduction en Portuguais.
+- Ajout de la traduction en Hongrois.
+
+-> 1.2.15 (21/06/2009):
+- Correction d'un problème de compatibilité avec Qt 4.3
+- Correction d'un plantage lors du passage à l'interface simplifiée.
+- Dépôt plus rapide par une utilisation plus judicieux du webservice.
+
+-> 1.2.14 (01/06/2009):
+- Correction d'un problème avec le lancement de jeux via la ligne de commande.
+- Meilleur compatibilité avec le nouveau serveur.
+
+-> 1.2.13 (24/5/2009):
+- Correction d'un bogue mineur avec le lancement de jeux par la ligne de commande.
+
+-> 1.2.12 (24/5/2009):
+- Modification du dépôt suite à un problème de synchronisation avec le serveur après une mise à jour.
+- Il n'est maintenant plus nécessaire de redémarrer djl après avoir changé de langue.
+- djl peut être utilisé en ligne de commande, utilisez l'argument -l pour voir la liste des jeux, lancez ensuite djl suivi du nom d'un jeu pour le lancer.
+
+-> 1.2.11 (08/05/2009):
+- Amélioration de la gestion des dépendances, elles peuvent être téléchargés automatiquement si un jeu plante au lancement.
+- Mise à jour de la traduction Galicienne (Merci à Gallaecio).
+- Quelques petites modifications de code.
+
+-> 1.2.10 (21/02/2009):
+- Nouvel onglet pour gérer les modules.
+- Le dépôt est maintenant téléchargé au démarrage.
+- Mise à jour de la traduction Italienne (merci à Mte90).
+
+-> 1.2.9 (31/01/2009):
+- Réecriture de l'agrégateur RSS, on peut ajouter de nouveaux flux plus facilement ainsi que les rafraichir à la volée.
+- Ajout d'un flux RSS en espagnol (depuis linuxjuegos.com).
+- Nouveau gestionnaire de téléchargement, dans un sous onglet du dépôt.
+- Ajout d'une fenêtre de notification au lancement de jeux.
+- Traduction en Galicien ajouté.
+
+-> 1.2.8 (31/12/2008):
+- Ajout d'un outil de diagnostique pour vérifier les dépendances (Dans le menu contextuel de la liste de jeux principale).
+- Meilleur gestion de la mémoire avec les modules additionnels
+- Meilleur intégration des modules.
+- Les fenêtres du journal et de deboguage peuvent être redimensionés.
+- Ajout d'une barre de recherche dans le gestionnaire des dépendances.
+- Le dépôt est maintenant téléchargé dans un thread, l'interface ne se bloquera plus.
+
+-> 1.2.7 (23/12/2008):
+- Correction d'un problème qui empechait les message de s'afficher sur le client IRC.
+- Il est maintenant possible de sélectionner du texte dans le client IRC.
+- Ajout d'un support minimal des dépendances.
+- Support des installateurs InstallJammer, utilisé par Regnum Online.
+- djl est maintenant modulaire, un certains nombre d'extentions peuvent être installé via le programme.
+- Quelques petites corrections de bogue.
+
+-> 1.2.6 (17/12/2008):
+- Il est maintenant possible d'installer plusieurs jeux en même temps et de parcourir le dépôt pendant l'installation.
+- Bogue corrigé dans la fonction de téléchargement, certains jeux pouvaient mal s'installer.
+
+-> 1.2.5 (14/12/2008):
+- Ajout d'une barre de recherche pour trouver plus facilement ses jeux installés.
+- djl se lance maintenant 5 à 10x plus rapidement grace à la sérialisation du dépôt au démarrage (il est téléchargé uniquement quand on lance djl pour la première fois ou quand on va sur l'onglet dépôt).
+- Amélioration du support des fichiers .desktop (djl trouve mieux les icones).
+- Informations suplémentaires lors du téléchargement (Debit, temps restant, etc...).
+- Correction d'un bogue qui empechait l'installation des paquets Loki.
+- Support de plusieurs canaux sur IRC (Uniquement sur irc.freenode.net).
+- Il est maintenant possible de choisir sa taille de police entre 8 et 12.
+- De nombreuses corrections de bogues.
+
+-> 1.2.4 (10/11/2008):
+- Djl repère maintenant si il y a un sous-répertoire "lib" ou "libs" dans les répertoires des jeux pour configurer l'environnement et les utiliser.
+- Meilleur gestion des rapports de bogues (au lancement des jeux).
+- Correction de problèmes avec le système de mise à jour.
+
+-> 1.2.3 (09/11/2008):
+- Traduction Polonaise ajoutée.
+- Envoi de message entre utilisateurs amélioré.
+- djl utilise maintenant sa propre taille de police pour éviter des problèmes d'affichage.
+- L'agrégateur RSS utilise maintenant djlfox (Requiert  >=Qt4.4).
+- Quelques corrections de bogues.
+
+-> 1.2.2 (26/10/2008):
+- Correction d'un gros bogue au niveau de la vérification de la mise à jour.
+- Correction d'un bogue dans le client IRC.
+
+-> 1.2.1 (26/10/2008):
+- Les fonctions de mise à jour utilisent maintenant deux serveurs pour eviter les blocages en cas d'indisponibilité.
+- Nouvelles traductions en Allemand, Italien et Espagnol.
+- Intégration d'un mini navigateur pour créer de nouvelles entrées pour le dépot (requiert qt 4.4).
+- Textes de l'utilisateur sur IRC dans une couleur différente des autres messages.
+- Possibilité d'envoyer un message à un utilisateur en cliquant sur son pseudo dans le client IRC.
+- Ajout d'un menu pour lancer des jeux depuis l'icône dans la barre des miniatures.
+- Ajout d'une boite d'informations dans la liste de jeux.
+- Focus automatique sur la ligne de texte quand on va sur l'onglet du client IRC.
+- Les mises à jours se font via une archive tar.gz, c'est plus rapide et plus simple à maintenir.
+- Meilleur support du mode hors ligne.
+- Quelques petits changements mineurs.
+
+-> 1.2.0 (11/10/2008):
+- Dépôt totalement administré en ligne, via un webservice, il est beaucoup plus souple et ces nouveaux services seront étendus.
+- Le gestionnaire d'instance de djl (afin de savoir si il est déjà lancé) est maintenant plus fin.
+- Nouvel import des raccourcis.
+- Possibilitée de modifier des raccourcis existants.
+- Nouveau menu contextuel dans la liste de jeux principale.
+- Si un jeu est déjà téléchargé en cache il ne sera pas écrasé si on demande une réinstallation.
+- Possibilitée de choisir un onglet par défaut.
+- De nombreuse améliorations mineures.
+- Amélioration de l'internationalisation.
+- Client IRC débogué
+
+-> 1.1.17 (27/07/2008):
+- La fenêtre de mise à jour de djl se ferme maintenant correctement et djl redémarrera à nouveau.
+- La liste des jeux en dépôt est mieux triée.
+- Au démarrage et à chaque changement du filtre, le premier jeu de la liste est affiché dans la description du dépôt.
+- Ajout de raccourcis dans le menu de l'icône dans la barre des tâches.
+- Optimisations lors de la création de la liste des jeux.
+- Quelques petites modifications.
+
+-> 1.1.16:
+- Correction d'un bogue majeur qui empêchait l'installation de nouveaux jeux.
+
+-> 1.1.15:
+- Correction d'un problème qui gelait les menus de la fenêtre principale.
+- Il y a maintenant un message d'avertissement si un utilisateur utilise djl en root.
+- Correction d'un problème en utilisant les raccourcis .desktop créés par Dolphin (KDE 4).
+- djl verifi au lancement si un autre client n'est pas déjà lancé, si c'est le cas, il quitte.
+- Correction d'un problème avec le rafraichissement de fenêtre de sortie des jeux.
+- Quand on ferme la fenêtre de téléchargement, il est annulé.
+- Correction d'un bogue lors de certains redémarrages (djl quitte sans se relancer).
+
+-> 1.1.14:
+- Ajout de raccourcis claviers dans djl (Touches d'échapement et entrée pour annuler/valider dans les boites de dialogue).
+- Possibilitée de modifier les entrés du dépôt.
+- Correction d'un bogue avec la mise à jour du dépôt.
+- Quelques optimisations et petites modifications.
+
+-> 1.1.13:
+- Bug fixed with the 'chmod +x' command (that fixe a problem with gridwars game)
+- Si aucun navigateur n'est défini, djl lancera celui par défaut.
+- Correction d'un bogue avec la lecture des dimensions de la fenetre principale au démarrage.
+- La liste de la mise à jour du dépot est maintenant dans une 'vraie' fenêtre et non plus dans une boite de dialogue.
+
+-> 1.1.12:
+- The main window is now resizable.
+- If the djl's icon is enabled on the system tray, djl just hide the main window and not exit.
+- Bug fixed when disconnecting to IRC.
+- Some small fixes.
+- Une condition a été ajoutée pour réduire le nombre d'informations dans la liste des changements lors de la mise à jour.
+
+-> 1.1.11:
+- Correction d'un bogue qui empechait les jeux de se lancer.
+
+-> 1.1.10:
+- Russian Rss feed added.
+- Légère modification de certains éléments sur l'interface.
+- Possiblitée d'ajouter des arguments de lancement pour les jeux.
+
+-> 1.1.9:
+- Correction d'un problème avec la liste des jeux du dépot qui restait bloquée.
+- Correction de bogue lors de la mise à jour du dépot au premier lancement de djl.
+- Plusieurs petites modifications de code.
+
+-> 1.1.8:
+- Correction d'un crash lors de la mise à jour du dépot.
+- Amélioration des différentes localisations (Anglais et Russes).
+
+-> 1.1.7:
+- Correction d'un crash lors du passage à l'interface simple.
+- Ajout de la version de djl dans le nom réel d'utilisateur sur IRC.
+
+-> 1.1.6:
+- Ajout du dépot en Anglais.
+- djl peut mainteant utiliser du code dans ~/.djl/src afin de permettre les mises à jours, même si le logiciel est installé dans un répertoire dans lequel il n'a pas le droit d'écrire.
+- Support minimal de Wine (possibilitée de créer des raccourcis vers des jeux Windows déjà installés).
+- Si le répertoire ~/.local/share/applications n'existe pas, djl le créé, merci obi146 (utilisé pour afficher djl dans les menus KDE/Gnome)
+- Correction d'un bogue qui faisait planter djl quand on passait à l'interface simple.
+- Correction d'un problème avec les liens sur l'agrégateur RSS.
+- Réorganisation du code (tout ce qui concerne directement l'interface principale est dans un fichier separé).
+- Diverses modifications de code.
+
+-> 1.1.5:
+- Correction d'un problème avec la liste des jeux du dépot.
+- Correction d'un bogue avec la liste des utilisateurs sur IRC (elle ne s'affichait pas).
+
+-> 1.1.4 (13/04/2008):
+- Traduction en Suédois.
+- Amélioration de l'agrégateur RSS, il ne bloque plus si il ne peut accéder à certains flux.
+- La langue du dépot est maintenant définie en fonction du choix de la langue de l'interface (et non plus depuis les variables locales).
+- Les installateurs .run devraient maintenant fonctionner chez tout le monde, l'installation se faire depuis un émulateur de terminal (L'extraction directement avec Python semblait poser problème chez certains utilisateurs).
+- Il est maintenant possible d'utiliser djl sans connection internet.
+- Correction d'un plantage quand l'on passait à l'interface simplifiée.
+- Ajout d'un argument, si on lance djl.py avec '-res', force sa réinstallation et supprime le fichier de configuration.
+- Ajouter une variables pour bloquer les MAJ (Côté administration).
+- Correction d'un bogue si on appui sur deconnection avant que djl soit connecté sur IRC au démarrage.
+- Correction d'un bogue, les noms de jeux utilisant plus de deux mots s'affichaient mal.
+
+-> 1.1.3:
+- Correction d'un bogue avec le dépot Russe.
+
+-> 1.1.2:
+- Correction d'un bogue qui faisait planter djl si il vérifiait les mises à jours au démarrage.
+- Possibilitée de choisir un nom d'utilisateur dans la fenêtre de configuration.
+- Possibilitée de passer la couleur de fond de la boite de dialogue en noir.
+- Possibilitée d'utiliser ou non la messagerie sur IRC (voir la configuration).
+- Le client IRC répond maintenant au ping, ce qui évitera les déconnections.
+- La client IRC support maintenant la commande /me.
+- Support des dépots multiligue (Première traduction en Russe).
+- Ajout d'un bouton pour se connecter/déconnecter sur IRC.
+- De nombreuses petites améliorations de code.
+
+- Ajout d'une option pour envoyer son pseudo quand l'on soumet une entrée du dépot.
+
+-> 1.1.1:
+- Correction de bogues avec la localisation en Russe.
+- Correction d'un bogue, si l'utilisateur lancait un jeu depuis l'interface principale, c'était parfois celui du dépot qui était lancé.
+- Si un nom d'utilisateur est déjà utilisé, djl en assigne un autre.
+- Correction d'un bogue qui empéchait aux icones de s'afficher dans le dépot.
+- De nouveaux jeux ajoutés au dépot et mis à jours.
+
+-> 1.1.0 (30/03/2008):
+- Interface totalement revue, il y a toujours l'interface principale avec la listes des jeux installé, ou on peut changer pour une interface étendue, avec des onglets, chacun contient un mini agrégateur RSS pour lire les actualités, la liste des jeux, le dépot et un mini client IRC (pour que les utilisateurs de djl puissent dialoguer).
+- djl detecte maintenant la langue du système et l'utilise par défaut. Si la localisation n'est pas disponible, le Français est choisi par défaut.
+- Amélioration de la traduction Anglaise.
+- Ajout de la localisation en Russe (Спасибо Chain).
+- Ajout du support des installateurs bitrock (.bin)
+- Correction de plusieurs problèmes qui empechaient l'éxecution de certains jeux.
+- Ajout de 6 nouveaux jeux jeux en dépot: NeverBall, NeverPutt, PlaneShift, PokerTH, World of Padman et FrozenBubble.
+- De nombreuses corrections de bogues et petites améliorations.
+
+-> 1.0.2:
+- djl supporte maintenant l'internationalisation, il est désormais disponible en Français et en Anglais (avec MON Anglais), si vous trouvez des erreurs, vous pouvez modifier les fichiers .po dans le sous répertoire i18n de djl ou m'en faire part via un courriel.
+- Le fichier djl.py est maintenant capable de vérifier que tous les fichiers dédiés à djl existent bien, si ils ne le sont pas, il télécharge les fichiers manquants.
+- Ajout d'icones dans les menus (si ils n'existent pas, ils seront téléchargés).
+- Correction de bogue: Si le second serveur graphique plante, l'utilisateur est prévenu. Si c'est un problème de droit, une boite de dialogue s'ouvre avec une solution possible.
+- Résolution de problème: Si l'utilisateur lance un jeu pendant une installation dans le dépot, la variables ne sont plus les mêmes, ce qui évite bien des problèmes.
+- Correction de bogue, la bouton de mise à jour des jeux était toujours activé.
+- Ajout d'une option pour rapporter une anomalie ou un bogue, depuis l'interface principale.
+
+-> 1.0.1:
+- djl peut maintenant lancer (suivant vos choix dans le menu configuration) les jeux dans un second serveur graphique (X11). Vous pouvez utiliser Compiz, Beryl ou n'importe quoi d'autres, il n'y aura pas de pertes de performances. Une fois le jeu quitté, le serveur graphique est fermé, c'est totalement transparent.
+
+- Mise en place d'un fichier journal qui contient des évenements produits par djl (il se situe dans '~/.djl/djl_log.txt'). Il est consultable depuis l'interface (menu 'informations').
+- Il est possible de consulter la sortie produite par les jeux lancés depuis djl (menu 'informations'), si un jeu plante, il est plus facile de savoir pourquoi.
+- Amélioration du support des fichiers .desktop
+- Les fichiers .desktop sont maintenant lancés avec la classe lance() afin de profiter de la gestion des erreurs.
+- Légère modification du code du dépot pour afficher le nombre de jeux total et par catégorie.
+- La boite de dialogue pour ajouter de nouvelles entrées pour le dépot est maintenant bien plus complète, on peut choisir le genre de jeu, la taille de l'archive, la licence, etc... ces informations sont néanmoins facultatives.
+- Ajout dans le menu configuration la possibilité de lancer une fenêtre contenant les informations de débogages (sortie standrard) au lancement des jeux depuis l'interface principale.
+- djl est un peu plus intelligent, lors de la mise à jour, il liste les changements depuis la version cliente (quelque soit le numéro) à la dernière version. Avant, il ne lisait que les derniers changements.
+- Ajout d'un nouveau jeu: SuperTux Kart.
+- De nombreuses petites modifications de code et corrections de bogues.
+
+-> 1.0.0 (18/03/2008):
+(Première version publique)
+- La liste des jeux est maintenant actualisée pendant la mise à jour du dépot.
+- Ajout d'une clause pour ne pas afficher plusieurs fois le dépot.
+- Diverses petites modifications de code.
+
+-> 0.9.9:
+- Correction d'un bogue (une erreur de ma part en fait) qui rendait des jeux installés depuis le dépot en 'non installé'
+- Amélioration du gestionnaire des erreurs.
+- Le calul du téléchargement est toujours remis à zero à son lancement.
+- Correction de bogues avec le "gestionnaire de plantage des jeux": Des boites de dialogues s'ouvraient parfois sans que ça soit indispensable, seul les erreurs connus sont maintenant affichés.
+- Quelques petites modifications de code (notamment au niveau des mises à jours automatiques).
+- De nouveaux jeux en dépot (njam et tileracer).
+
+-> 0.9.8:
+(Djl commence à être complet, le gel des fonctionnalités est proche en vue d'une version 1.0 publique).
+
+- djl est maitenant capable de savoir si un jeu se lance correctement. Si ce n'est pas le cas, il affiche un message d'erreur et tente de donner une solution (ça fonctionne quand une librairie manque par exemple (pour les jeux écrit en Python et les binaires), mais aussi si l'application plante parce qu'il n'a put utiliser la carte son. Le système est relativement souple, de nouveaux cas d'erreurs seront probablement ajoutés par la suite.
+- Décompression des archives zip largement modifié, la dernière version de Nexuiz posait problème (Il n'arrivait pas à créer certains dossiers). C'est maintenant corrigé.
+- Ajout d'informations dans les fichiers de définition.
+- Le dépot affiche des informations suplémentaires, taille de l'archive, type de jeu, architecture (fixe), licence
+- Les jeux peuvent être triés par catégories dans le dépot (en fonction du type de jeu).
+- djl peut ouvrir un navigateur pour afficher des informations suplémentaire grace à des articles en ligne (généralement jeuxlinux.fr).
+- Amélioration du bloquage de l'interface principale lors du lancement des fichiers .desktop
+- Correction de bogues avec le dépot
+- De nombreuses petites modifications de codes.
+
+-> 0.9.7:
+- Correction de nombreux bogues lors de la mise à jour du dépot.
+- Possibilitée d'annuler avant le lancement de la mise à jour de djl et du dépot.
+- La fenêtre d'ajout se ferme quand l'utilisateur envoi une nouvelle entrée (du dépot) sur le serveur ftp du développeur.
+
+-> 0.9.6:
+- Il est maintenant possible d'envoyer sur un serveur ftp les fichiers de définitin créés par l'utilisateur.
+- Ajout d'un menu dans djl pour afficher l'histoirique des modifications du logiciel.
+- Envoi par ftp des entrés de dépot faites par l'utilisateur.
+- Le dépot a été légèrement re-modelé pour régler des problèmes d'affichage.
+- Correction d'un bogue avec le raccourcis dans le menu Gnome/KDE.
+- La police de la fenêtre de configuration a été réduite pour régler des problèmes d'affichage.
+
+-> 0.9.5:
+- L'interface principale est maintenant bloquée quelques secondes après avoir lancé un jeu. (Si un jeu met du temps à se lancer, l'utilisateur ne pourra pas le lancer plusieurs fois).
+- La liste des jeux en dépot ainsi que la liste dans l'interface principale sont maintenant triée par ordre alphabétique (Les jeux du dépot et les raccourcis sont séparés).
+- Les numéros de version on disparus de l'interface principale, le résultat est plus cohérent.
+- Possibilitée d'ajouter un raccourcis dans le menu KDE/Gnome depuis la fenêtre de configuration de djl.
+- Suppression de quelques messages d'erreurs lors de la mise à jour du dépot.
+- Deux nouveaux jeux en dépot, Yoda Soccer et Machine Ball.
+- Ajout de quelques tests suplémentaire pour les informations systèmes.
+- Quelques bogues mineurs apparus après les lourdes modifications précédentes ont été corrigés.
+
+-> Version 0.9.4:
+- Le système du répertoire d'installation des données de djl a complètement été révu, il est maintenant possible pour djl d'utiliser n'importe quel répertoire pour y
+stocker les jeux, fichiers de définition, raccourcis, et autres. Excepté le fichier de configuration, qui doit être fixe, ainsi que les fichiers temporaires.
+
+-> Version 0.9.3:
+- La liste des jeux en dépot peut être mise à jour.
+- Possibilitée d'importer des fichiers .desktop depuis le système.
+- La fonction d'installation n'est plus un Thread (sous processus), pour que l'installation 'bloque' djl le temps de son execution.
+- Support des mises à jours des jeux (Si le jeu installé est différent par rapport au dépot, il supprime l'ancienne version et installe la nouvelle
+- Ajout d'une clause, si un jeu n'est pas supprimé normalement (parce que le répertoire n'existe pas ou plus), il est compté comme supprimé pour djl.
+- Ajout d'un menu aide:
+  - Informations systèmes
+  - A propos...
+- Correction d'un bogue qui empéchait l'installation des archives autopackages.
+- Correction d'un bogue qui empéchait l'installation du jeu VegaStrike
+- De nombreuses petites améliorations mineures
+
+-> Version 0.9.2:
+- Support des mises à jours automatiques. djl peut repérer si il est à jour ou pas et faire la mise à jour automatiquement (ou pas), puis redémarre.
+(Cette dernière fonctionnalitée ne fonctionne que si l'utilisateur a les droits nécessaires pour écrire dans le répertoire de djl. Le cas échéant, elle est désactivée).
+- Ajout dans le menu configuration la possibilitée pour djl de vérifier au démarrage si il est à jour.
+- Ajout d'une icône dans la fenêtre principale.
+- Correction d'incohérences dans la mise en page de la fenêtre principale.
+- Correction d'un bogue qui empechait la suppression de jeux depuis le dépot.
+
+-> Version 0.9.1 (23/02/2008):
+- Utilisation du répertoire ~/.djl pour stocker les fichiers de configuration (il n'est désormais plus nécessaire d'avoir les droits en écriture dans djl, tout est stocké dans le répertoire utilisateur).
+- Ajout d'une interface au premier lancement pour la configuration; ce qui permet (ente autres) de choisir l'emplacement d'installation des jeux, par défaut ~/.djl/jeux
+- Ajout d'un menu de configuration (le même lors du premier lancement).
+- Possibilitée pour djl de redémarrer après une mise à jour (pas encore implémentée) ou manuellement depuis le menu.
+- Ajout d'une icone dans la barre des taches quand djl est lancé (à la Steam).
+- Nouvelles icone pour djl (peut être pas définitive), merci Julroy67.
+
+-> Version 0.9 (17/02/2008):
+- Première version semi-publique, l'interface principale avec le dépot sont pleinement fonctionnel, support des fichiers .desktop.
+- Il est possible de créer ses propres fichiers .desktop depuis djl ainsi que de nouvelles entrées depuis le dépot.

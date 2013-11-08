@@ -1,0 +1,142 @@
+-> 1.2.20 (2009/10/18):
+- Some bugfixes on the offline mode.
+- djl won't crash anymore if the server fail.
+- Bugfixes.
+
+-> 1.2.19 (2009/09/13):
+- djl now using QtWebKit for draw descriptions of games. Si in the future we should use html on descriptions.
+- Ctrl+Q shortcut added for exit the software.
+- A lot of bugfixes
+
+-> 1.2.18 (2009/09/13):
+- Bug manager improved.
+- New design for the repository tab.
+- It's now possible to sort games by license.
+- Portuguese translation added on the repository.
+- djlfox (the small navigator) shouldn't crash djl anymore.
+- djlfox is now launched on a thread.
+- Bugfix, sometimes the games aren't relaunched succesfully after the dependencies manager's work.
+- The repository is not totaly reloaded after switching the translation.
+- New url parser, djl can now use non direct download links.
+- Some bugfixes.
+
+-> 1.2.17 (2009/08/17):
+- Some bugfixes.
+
+-> 1.2.16 (2009/08/16):
+- djl can now capture stderr and draw it on a message box if djl crash.
+- Bugfix on the download list.
+- Bugfix on the dependencies manager.
+- Portuguese translation added.
+- Hungarian translation added.
+
+-> 1.2.15 (2009/06/07):
+- Fixed incompatibility with Qt4.3.
+- Crash fixed while using the simplified interface.
+- Speed up repository. 
+
+-> 1.2.14 (2009/06/01):
+- Some code changes on the command line launch function.
+- Increased compatibility with the new server.
+
+-> 1.2.13 (2009/05/24):
+- Small bugfix with the command line interface.
+
+-> 1.2.12 (2009/05/24):
+- Modification of the deposit due to a problem with the server after updated it.
+- Restart not longer required after changing language.
+- djl can launch games from command line, use -l argument to see games list and launch djl with a game name as argument to launch it.
+
+-> 1.2.10 (2009/05/08):
+- New dependencies auto-download system.
+- Galician translation updated (thanks Gallaecio).
+- Some minor improvements.
+
+-> 1.2.10 (2009/02/21):
+- New plugins manager on a tab.
+- The repo is now downloaded on startup.
+- Italian translation updated (thanks Mte90).
+
+-> 1.2.9 (2009/01/31):
+- RSS feed rewrited, more easy to maintain and it's now possible to refresh feeds (with a new context menu).
+- Spanish RSS feed added (from linuxjuegos.com).
+- New download manager for the repository, on a sub tab.
+- Galician translation added.
+- New notification window on games launching.
+
+-> 1.2.8 (2009/12/31):
+- New tool to check dependencies (On the context menu of the main game list).
+- Better memory usage with plugins.
+- Better plugins integration (And so new plugins soon).
+- Debug and log windows can now be resized.
+- Search bar added to library manager.
+- The repository is now downloaded on a thread, the gui will not freeze anymore when going to repository.
+
+-> 1.2.7 (2008/12/23):
+- The IRC client work now !
+- Text on IRC can now be selected.
+- Minimal dependencies system (see repo menu).
+- InstallJammer installers support (used by Regnum Online).
+- Plugins support (see repo menu, again).
+- Some bugfixes.
+
+-> 1.2.6 (2008/12/17):
+- djl can now install multiple games at the time.
+- Bug fixed on the download function.
+
+-> 1.2.5 (2008/12/14):
+- Search widget added on the main game list.
+- Fastest startup.
+- Improved .desktop shortcuts support.
+- More informations on download window.
+- Bug fixed with Loki installers.
+- Multiple IRC chanels support (but only on irc.freenode.net).
+- It's now possible to change font size (from 8 to 12).
+- A lot of bugfixes.
+
+-> 1.2.4 (2008/11/10):
+- djl can use now shared libs if ~/.djl/libs exists.
+- Better bug report function (on game startup).
+- Bug fixed with the update system.
+
+-> 1.2.3 (2008/11/09):
+- New Polish translation.
+- Better users to users messages support.
+- djl use now it own font size.
+- RSS agregator use now djlfox (Need >=Qt4.4).
+- Some bugfixes.
+
+-> 1.2.2 (2008/10/26):
+- Bugfix on djl's update system.
+- Bugfix on IRC client.
+
+-> 1.2.1 (2008/10/26):
+- German, Italian and Spanish translations added
+- The update function use now two servers for be sure one of us work.
+- New menu added for launch games from the panel icon.
+- Small browser added (with qt 4.4) for show some web pages.
+- User texts on IRC are now on different color within other messages.
+- It's now possible to send message to users when click on here nick (IRC).
+- New informations window on the game list
+- Auto focus to the line text on the IRC client.
+- New update system with tar.gz archives.
+- Increase offline mode.
+- A lot of small changes.
+
+-> 1.2.0 (2008/10/11):
+- The repository use now a webservice with a database, it's more easy to maintain and for add new features on the repo.
+- Better function for search if djl is already running.
+- New shorcut import window.
+- djl is now able to change shortcut.
+- New context menu on the main game list.
+- If a game archive is already downloaded (and not removed), it will not be re-downloaded in the future.
+- It's now possible to choose the default tab (shown on startup).
+- Better internationalisation support.
+- New IRC client.
+- Some minor changes.
+
+-> 1.1.17 (2008/07/22):
+- Some fixes with the djl's updater.
+- Better game list sorting (repository).
+- New shortcuts on the panel's icon.
+- Some minor changes.
