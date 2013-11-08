@@ -7,9 +7,9 @@ The plan is to upgrade the code to Python 2.7 or 3.4 and continue development.
 
 
 More about DJL (from the old README file)
-=========================================
+-----------------------------------------
 
-It makes it possible to download, install (via a repository) and remove a reasonable number of games placed in a subdirectory in an absolutely invisible way (but without dealing with any dependencies).
+Djl makes it possible to download, install (via a repository) and remove a reasonable number of games placed in a subdirectory in an absolutely invisible way (but without dealing with any dependencies).
 It can also execute .desktop shortcuts located in another directory (this way, it's possible to launch games which were already installed).
 
 Several games are available in the repository. Anyone can submit new games to developers via a web page (http://djl.jeuxlinux.fr/djl_addgame_en.php).
